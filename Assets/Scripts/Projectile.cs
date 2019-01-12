@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float velocity = 1;
+    public float velocity = 10;
+    public int maxTicks = 200;
+    
+    private int ticks = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +18,10 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ticks++;
+        if(ticks >= maxTicks){
+			Destroy (gameObject);
+		}
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
     }
 }
