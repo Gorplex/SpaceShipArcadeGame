@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	public GameObject bullet;
 	public float moveSpeed = 5;
-	public float rotX;
-	public float rotY;
-	public int shootCD;
+	public float rotX = 1;
+	public float rotY = 1;
+	public int shootCD = 20;
 
 	private Vector3 offset;
 	private int shootTimer = 0;
