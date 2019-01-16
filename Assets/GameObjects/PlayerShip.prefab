@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4edef5252c1a842b375f2c26184895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76, type: 3}
+  bullet: {fileID: 9192117215511687428, guid: 544b4a632884b364489817b89573163c, type: 3}
   moveSpeed: 5
   rotX: 1
   rotY: 1

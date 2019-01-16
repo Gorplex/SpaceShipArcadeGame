@@ -7,17 +7,15 @@ public class EnemyAxisRotator : MonoBehaviour{
 	public float rotationSpeed = 1;
 	
 	private Vector3 roationAxis;
-	
-    // Start is called before the first frame update
+
     void Start()
     {
         roationAxis = Random.rotation.eulerAngles;
 		roationAxis.y = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //transform.Rotate(Time.deltaTime);
+        transform.RotateAround(transform.position, roationAxis, rotationSpeed * Time.deltaTime);
     }
 }
