@@ -11,7 +11,7 @@ public class EnemyAxisRotator : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
-        roationAxis = Random.rotation;
+        roationAxis = Random.rotation.eulerAngles;
 		roationAxis.y = 0;
     }
 

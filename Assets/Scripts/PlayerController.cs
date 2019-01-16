@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 		Vector3 forw = transform.forward * Input.GetAxis ("Vertical");
 		Vector3 lat = transform.right * Input.GetAxis ("Horizontal");
 		Vector3 vert = new Vector3(0, 1, 0) * Input.GetAxis("Jump");
-		transform.position += Vector3.Normalize(forw + lat + vert) * moveSpeed;
+		transform.position += Vector3.Normalize(forw + lat + vert) * moveSpeed*Time.deltaTime;
 	}
 
 	void shoot ()

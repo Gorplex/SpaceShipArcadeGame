@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 2899984454275875014}
   - component: {fileID: 5261871064918286093}
   - component: {fileID: 1215593589566468556}
-  - component: {fileID: 961172664119715670}
   m_Layer: 0
   m_Name: MissileAlienRed
   m_TagString: Untagged
@@ -156,20 +155,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &961172664119715670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072523926912135514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2531fed6c10ee684cb588ed99f7bbe29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 10
-  maxTicks: 200
 --- !u!1001 &586732618494664043
 PrefabInstance:
   m_ObjectHideFlags: 0

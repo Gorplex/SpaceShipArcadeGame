@@ -12,9 +12,9 @@ public class EnemySpawnInfo : MonoBehaviour{
 	
 	private Vector3 spawnCenter;
 	
-	public void StartSpawning(Vector3 spawnCenterLocation){
+	public void StartSpawning(Vector3 spawnCenterLocation, GameObject PlayerShip){
 		spawnCenter = spawnCenterLocation;
-		InvokeRepeating("spawn", firstSpawnTime, spawnTime);
+		InvokeRepeating("Spawn", firstSpawnTime, spawnTime);
 	}
 	private void Spawn(){
 		Vector3 offset = new Vector3(Random.Range(-radiusXZ,radiusXZ),Random.Range(-radiusY,radiusY),Random.Range(-radiusXZ,radiusXZ));
