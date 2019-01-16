@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerHitscan.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\RefrenceCode.cs" />
+     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
      <None Include="Assets\ArtObjects\Ships\StarSparrowShips\ReadMe.txt" />
      <None Include="Assets\ArtObjects\Ships\StarSparrowShips\Materials\Unified\UnifiedMaterials.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">

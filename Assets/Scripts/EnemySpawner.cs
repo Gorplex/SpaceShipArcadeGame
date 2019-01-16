@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-	[Tooltip("Otherwise centerd on EnemySpawner.")]
+	[Tooltip("Otherwise centerd on EnemySpawner transform.")]
 	public bool centeredOnPlayer = false;
 	[Tooltip("Enables EnemySpawner to spawn any Enemies.")]
 	public bool enableAll = true;
