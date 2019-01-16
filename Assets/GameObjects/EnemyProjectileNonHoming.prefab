@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 10
-  maxTicks: 200
+  maxTime: 20
 --- !u!54 &3043932060984539726
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyProjectile
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2899984454275875014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
@@ -158,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 1659008543177411756, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyProjectile
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6379057650302054014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
@@ -168,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 6379057650302054014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyProjectile
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1435371201192329873, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}

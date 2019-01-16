@@ -4,17 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour{
+	[Tooltip("If player health is enabled (if player can Die).")]
+	public bool enable = true;
 	[Tooltip("Time game is paused when player is hit.")]
 	public float timeFrozen = 5;
+
+	
 	
 	private PlayerController playerController;
 	
 	void Start(){
-		playerController = gameObject.GetComponent(typeof(PlayerController)) as PlayerController;
+		//playerController = gameObject.GetComponent(typeof(PlayerController)) as PlayerController;
+		playerController = gameObject.GetComponent<PlayerController>();
 	}
 	
 	void OnTriggerEnter(Collider other){
-		if(other.gameObject.CompareTag("EnemyProjectile")){
+		if(enable && other.transform.root.gameObject.CompareTag("EnemyProjectile")){
 			StopScene();
 			//StartCoroutine(Example());
 			//Invoke("RestartScene", timeFrozen);

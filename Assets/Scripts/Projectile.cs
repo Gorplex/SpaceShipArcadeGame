@@ -7,17 +7,14 @@ public class Projectile : MonoBehaviour{
     public float velocity = 10;
 	[Tooltip("Max lifetime of projectile in seconds.")]
     public float maxTime = 20;
-    
-    private float dieTime;
+	[Tooltip("damage projectile will deal to a target.")]
+    public float damage = 1;
     
 	void Start(){
-        dieTime = Time.time + maxTime;
+		Destroy(gameObject, maxTime);
     }
     void Update()
     {
-        if(Time.time >= dieTime){
-			Destroy(gameObject);
-		}
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
     }
 }
