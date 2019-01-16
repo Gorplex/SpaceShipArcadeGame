@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
-{
+public class Projectile : MonoBehaviour{
+	[Tooltip("Speed of projectile.")]
     public float velocity = 10;
-    public int maxTicks = 200;
+	[Tooltip("Max lifetime of projectile in seconds.")]
+    public float maxTime = 20;
     
-    private int ticks = 0;
+    private float dieTime;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+	void Start(){
+        dieTime = Time.time + maxTime;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        ticks++;
-        if(ticks >= maxTicks){
-			Destroy (gameObject);
+        if(Time.time >= dieTime){
+			Destroy(gameObject);
 		}
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
     }

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour{
+	[Tooltip("Refence to EnemyProjectile GameObject.")]
 	public GameObject projectile;
+	[Tooltip("Offset to Shift projectile spanw location out of Enemy.")]
 	public float launchOffset = 2f;
+	[Tooltip("Frequency(Hz) projectiles are launched.")]
 	public float launchFreq = .5f;
+	[Tooltip("Delay(s) for first projectile.")]
 	public float firstLaunch = 2f;
 	
 	private float nextLaunch;

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour{
+	[Tooltip("Time game is paused when player is hit.")]
 	public float timeFrozen = 5;
 	
 	private PlayerController playerController;
@@ -14,7 +15,7 @@ public class PlayerHealth : MonoBehaviour{
 	
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.CompareTag("EnemyProjectile")){
-			StopScene()
+			StopScene();
 			//StartCoroutine(Example());
 			//Invoke("RestartScene", timeFrozen);
 		}

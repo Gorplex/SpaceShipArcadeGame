@@ -3,10 +3,15 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour{
 	public GameObject projectile;
+	[Tooltip("Player move speed in XYZ.")]
 	public float moveSpeed = 5;
+	[Tooltip("X sensitivity(mouse).")]
 	public float rotX = 4;
+	[Tooltip("Y sensitivity(mouse).")]
 	public float rotY = 4;
+	[Tooltip("Cooldown of launching a projectile in seconds.")]
 	public float projectileCD = 1;
+	[Tooltip("PlayerController enable(for pausing player input).")]
 	public bool enable = true;
 	
 	private Vector3 offset;

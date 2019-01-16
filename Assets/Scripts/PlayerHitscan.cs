@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHitscan : MonoBehaviour{
-    // Start is called before the first frame update
+	[Tooltip("Weapon fire frequency(Hz).")]
+    public float fireFreq = 4;
+	[Tooltip("Damage per shot of player weapon.")]
+	public float damagePerShot = 1;
+	[Tooltip("enables rendering of Targeting Cylinder.")]
+	public bool showTargetingCyl = true;
+	
+
     void Start(){
         
     }
-
-    // Update is called once per frame
     void Update(){
-        //SceneManager.LoadScene(SceneManager.GetActiveScene());
+        
     }
 }
