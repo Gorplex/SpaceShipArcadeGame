@@ -224,16 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af04b05927582d44989257f451fac06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerShip: {fileID: 1738361648}
   enemyTypes:
   - {fileID: 4882900587617980438, guid: f931e7069f82e5747963281ffeee3060, type: 3}
   - {fileID: 4811913969884281035, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
---- !u!1 &1738361648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8314401730817250395, guid: 87faa9752d1a1b94b88aa40b3760d446,
-    type: 3}
-  m_PrefabInstance: {fileID: 8314401732387676011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8314401732387676011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 8314401730817250393, guid: 87faa9752d1a1b94b88aa40b3760d446,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8314401730817250393, guid: 87faa9752d1a1b94b88aa40b3760d446,
         type: 3}

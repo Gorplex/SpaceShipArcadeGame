@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6775286071904728825}
-  firstSpawnTime: 3
-  spawnTime: 3
-  radiusXZ: 5
+  randomRotation: 1
+  firstSpawnTime: 10
+  spawnTime: 5
+  radiusXZ: 10
   radiusY: 10
 --- !u!114 &8269400722926643997
 MonoBehaviour:
@@ -63,6 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b4a138915c2884784e346d8574b829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomRotationAxis: 0
+  rotationSpeed: 20
 --- !u!1 &6775286072236261651
 GameObject:
   m_ObjectHideFlags: 0

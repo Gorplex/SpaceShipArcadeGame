@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8314401730817250395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8314401732289525050}
@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4edef5252c1a842b375f2c26184895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 9192117215511687428, guid: 544b4a632884b364489817b89573163c, type: 3}
+  projectile: {fileID: 9192117215511687428, guid: 544b4a632884b364489817b89573163c,
+    type: 3}
   moveSpeed: 5
-  rotX: 1
-  rotY: 1
-  shootCD: 20
+  rotX: 4
+  rotY: 4
+  projectileCD: 1
 --- !u!1 &8314401732289525029
 GameObject:
   m_ObjectHideFlags: 0

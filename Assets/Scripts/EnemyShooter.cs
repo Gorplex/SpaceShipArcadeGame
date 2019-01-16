@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour{
-	public GameObject player;
 	public GameObject projectile;
 	public float launchOffset = 2f;
 	public float launchFreq = .5f;
 	public float firstLaunch = 2f;
 	
 	private float nextLaunch;
+	private GameObject player;
 	
     // Start is called before the first frame update
     void Start(){
+		player = GameObject.Find("PlayerShip");
 		transform.LookAt(player.transform);
         nextLaunch = firstLaunch + Time.time;
     }

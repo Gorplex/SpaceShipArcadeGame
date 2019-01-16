@@ -1,32 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-	public GameObject bullet;
+public class PlayerController : MonoBehaviour{
+	public GameObject projectile;
 	public float moveSpeed = 5;
-	public float rotX = 1;
-	public float rotY = 1;
-	public int shootCD = 20;
+	public float rotX = 4;
+	public float rotY = 4;
+	public float projectileCD = 1;
 
 	private Vector3 offset;
-	private int shootTimer = 0;
+	private float nextProjectile;
 
-	// Use this for initialization
-	void Start () 
-	{
+	void Start(){
+		nextProjectile = Time.time;
+	}
 	
+	void Update() {
+		Translate();
+		Rotate();
+		Shoot();
 	}
 
-	// Update is called once per frame
-	void Update () {
-		translate ();
-		rotate ();
-
-		shoot ();
-	}
-
-	void rotate ()
-	{
+	void Rotate (){
 		float x = rotX * Input.GetAxis("Mouse X");
 		//transform.Rotate(new Vector3 (0, x, 0), Space.World);
 		float y = rotY * Input.GetAxis("Mouse Y");
@@ -35,25 +30,18 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	void translate ()
-	{
+	void Translate(){
 		Vector3 forw = transform.forward * Input.GetAxis ("Vertical");
 		Vector3 lat = transform.right * Input.GetAxis ("Horizontal");
 		Vector3 vert = new Vector3(0, 1, 0) * Input.GetAxis("Jump");
 		transform.position += Vector3.Normalize(forw + lat + vert) * moveSpeed*Time.deltaTime;
 	}
 
-	void shoot ()
-	{
-		if (shootTimer >= shootCD) {
+	void Shoot(){
+		if (Time.time >= nextProjectile) {
 			if (Input.GetAxis ("Fire1") == 1) {
-				Instantiate (bullet, transform.position, transform.rotation);
-				shootTimer = 0;
-			}
-		} else {
-			if (shootTimer < shootCD)
-			{
-				shootTimer++;
+				Instantiate (projectile, transform.position, transform.rotation);
+				nextProjectile = Time.time + projectileCD;
 			}
 		}
 	}

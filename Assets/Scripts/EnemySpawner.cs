@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-	public GameObject PlayerShip;
+	public bool[] enable;
 	public EnemySpawnInfo[] enemyTypes;
 	
+	private GameObject player;
 	
     void Start(){
-		foreach(EnemySpawnInfo enemy in enemyTypes){
-			if(enemy){
-				enemy.StartSpawning(transform.position, PlayerShip);
+		player = GameObject.Find("PlayerShip");
+		for(int i=0;i < enable.Length;i++){
+		//foreach(EnemySpawnInfo enemy in enemyTypes){
+			if(enable[i] && enemyTypes[i]){
+				enemyTypes[i].StartSpawning(transform.position, player);
 			}
 		}
     }

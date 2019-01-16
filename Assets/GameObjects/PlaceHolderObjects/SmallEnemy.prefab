@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4811913969884281028}
-  randomRotation: 1
+  randomRotation: 0
   firstSpawnTime: 5
-  spawnTime: 5
+  spawnTime: 3
   radiusXZ: 5
   radiusY: 10
 --- !u!114 &6867447996412842680
@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccda33f9e53a614abf711bdd56fbf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   projectile: {fileID: 5249746652595121537, guid: a5d5160e62432e14784578b0d45353df,
     type: 3}
   launchOffset: 2
