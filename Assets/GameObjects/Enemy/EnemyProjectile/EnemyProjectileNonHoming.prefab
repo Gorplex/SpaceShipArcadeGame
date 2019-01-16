@@ -159,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 1659008543177411756, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 6379057650302054014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
@@ -169,7 +169,7 @@ PrefabInstance:
     - target: {fileID: 6379057650302054014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 1435371201192329873, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}

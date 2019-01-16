@@ -10,6 +10,6 @@ public class RefrenceCode : MonoBehaviour{
 		cylinder.transform.Rotate(90f,0f,0f);
 		cylinder.transform.localScale += new Vector3(.25f,20f,.25f);
 		cylinder.transform.SetParent(transform);
-		
 	}*/
+	//other.transform.root.gameObject.CompareTag("PlayerProjectile")
 }

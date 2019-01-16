@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour{
 	
 	void OnTriggerEnter(Collider other){
 		//if(other.gameObject.CompareTag("PlayerProjectile")){
-		if(other.transform.root.gameObject.CompareTag("PlayerProjectile")){
+		if(other.CompareTag("PlayerProjectile")){
 		//get other components top level transfrom (root) and destroy it
 			health -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
 			Destroy(other.transform.root.gameObject);

@@ -151,10 +151,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8679631294492048893, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 8609391124321978523, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609391124321978523, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda99b3480484e94eac154a78c49cf76, type: 3}
