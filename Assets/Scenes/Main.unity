@@ -251,12 +251,12 @@ PrefabInstance:
     - target: {fileID: 776066116267208786, guid: 1a0019180c227224980900e2ecad7650,
         type: 3}
       propertyPath: enable.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 776066116267208786, guid: 1a0019180c227224980900e2ecad7650,
         type: 3}
       propertyPath: enable.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0019180c227224980900e2ecad7650, type: 3}
@@ -271,6 +271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314401730817250395, guid: 87faa9752d1a1b94b88aa40b3760d446,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8314401730817250393, guid: 87faa9752d1a1b94b88aa40b3760d446,
         type: 3}

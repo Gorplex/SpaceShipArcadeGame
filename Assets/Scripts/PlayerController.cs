@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour{
 	public float rotX = 4;
 	public float rotY = 4;
 	public float projectileCD = 1;
-
+	public bool enable = true;
+	
 	private Vector3 offset;
 	private float nextProjectile;
 
@@ -16,12 +17,14 @@ public class PlayerController : MonoBehaviour{
 	}
 	
 	void Update() {
-		Translate();
-		Rotate();
-		Shoot();
+		if(enable){
+			Translate();
+			Rotate();
+			Shoot();
+		}
 	}
 
-	void Rotate (){
+	void Rotate(){
 		float x = rotX * Input.GetAxis("Mouse X");
 		//transform.Rotate(new Vector3 (0, x, 0), Space.World);
 		float y = rotY * Input.GetAxis("Mouse Y");
