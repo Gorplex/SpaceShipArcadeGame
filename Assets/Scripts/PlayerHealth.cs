@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour{
-	[Tooltip("If player health is enabled (if player can Die).")]
-	public bool enable = true;
 	[Tooltip("If player will let projectiles pass through (after taking damage) or remove them.")]
 	public bool destroyProjectiles = true;
 	[Tooltip("Player starting health.")]
@@ -29,7 +27,7 @@ public class PlayerHealth : MonoBehaviour{
 	}
 	
 	void OnTriggerEnter(Collider other){
-		if(enable && other.transform.CompareTag("EnemyProjectile")){
+		if(other.transform.CompareTag("EnemyProjectile")){
 			playerHealth -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
 			if(destroyProjectiles){
 				Destroy(other.transform.root.gameObject);
@@ -55,14 +53,14 @@ public class PlayerHealth : MonoBehaviour{
     }
 	
 	void StopScene(){
-		playerController.enable = false;
+		playerController.enabled = false;
 		Time.timeScale = 0;
 	}
 	
 	void RestartScene(){
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 		Time.timeScale = 1;
-		playerController.enable = true;
+		playerController.enabled = true;
 		
 	}
 }

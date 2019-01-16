@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour{
 	public float rotY = 4;
 	[Tooltip("Cooldown of launching a projectile in seconds.")]
 	public float projectileCD = 1;
-	[Tooltip("PlayerController enable(for pausing player input).")]
-	public bool enable = true;
 	
 	private Vector3 offset;
 	private float nextProjectile;
@@ -22,11 +20,9 @@ public class PlayerController : MonoBehaviour{
 	}
 	
 	void Update() {
-		if(enable){
-			Translate();
-			Rotate();
-			Shoot();
-		}
+		Translate();
+		Rotate();
+		Shoot();
 	}
 
 	void Rotate(){
