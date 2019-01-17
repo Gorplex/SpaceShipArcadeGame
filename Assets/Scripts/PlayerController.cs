@@ -11,12 +11,16 @@ public class PlayerController : MonoBehaviour{
 	public float rotY = 4;
 	[Tooltip("Cooldown of launching a projectile in seconds.")]
 	public float projectileCD = 1;
+	[Tooltip("Animator refrence.")]
+	public Animator anim;
+	
 	
 	private Vector3 offset;
 	private float nextProjectile;
 
 	void Start(){
 		nextProjectile = Time.time;
+		anim = GetComponentInChildren<Animator>();
 	}
 	
 	void Update() {
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour{
 		Vector3 lat = transform.right * Input.GetAxis ("Horizontal");
 		Vector3 vert = new Vector3(0, 1, 0) * Input.GetAxis("Jump");
 		transform.position += Vector3.Normalize(forw + lat + vert) * moveSpeed*Time.deltaTime;
+		anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 	}
 
 	void Shoot(){
