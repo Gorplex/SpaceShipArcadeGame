@@ -42,11 +42,11 @@ public class PlayerAnimator : MonoBehaviour{
 		MoveTowardTargets();
 		//AnimUpdate();
 	}
-	int CompareVals(float newA, float oldA){
-		if(newA < oldA){
+	int CheckDir(float x){
+		if(x<0){
 			//roll/pitch left/down
 			return 0;
-		}else if(newA > oldA){
+		}else if(x>0){
 			//roll/pitch right/up
 			return 2;
 		}else{
@@ -55,8 +55,9 @@ public class PlayerAnimator : MonoBehaviour{
 		}
 	}
 	void CheckDif(){
-		ZIndex = CompareVals(transform.parent.position.x, oldPos.x);
-		XIndex = CompareVals(transform.parent.position.y, oldPos.y);
+		Vector3 relitiveMove = transform.parent.InverseTransformDirection(transform.parent.position - oldPos);
+		ZIndex = CheckDir(relitiveMove.x);
+		XIndex = CheckDir(relitiveMove.y);
 		oldPos = gameObject.transform.position;
 	}
 	void MoveTowardTargets(){
