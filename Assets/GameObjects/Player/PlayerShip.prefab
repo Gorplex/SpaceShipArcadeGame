@@ -149,7 +149,6 @@ MonoBehaviour:
   rotX: 4
   rotY: 4
   projectileCD: 0.75
-  enable: 1
 --- !u!114 &306644868083106737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86edf13b934ef06438484d8d7447c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enable: 1
+  destroyProjectiles: 1
+  playerStartHealth: 100
   timeFrozen: 5
+  healthText: {fileID: 0}
 --- !u!114 &4357807652240267052
 MonoBehaviour:
   m_ObjectHideFlags: 0

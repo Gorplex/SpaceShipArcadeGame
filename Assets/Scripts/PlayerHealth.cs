@@ -13,7 +13,8 @@ public class PlayerHealth : MonoBehaviour{
 	public float timeFrozen = 5;
 	[Tooltip("Text object refence for player health.")]
 	public Text healthText;
-
+	[Tooltip("Slider object refence for player health.")]
+	public Slider healthSlider;
 	
 	
 	private PlayerController playerController;
@@ -24,20 +25,28 @@ public class PlayerHealth : MonoBehaviour{
 		playerController = gameObject.GetComponent<PlayerController>();
 		playerHealth = playerStartHealth;
 		SetHealthText();
+        SetHealthSlider(); 
 	}
 	
 	void OnTriggerEnter(Collider other){
 		if(other.transform.CompareTag("EnemyProjectile")){
-			playerHealth -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
+			if(other.transform.root.gameObject.name.Contains("EnemyProjectile")){
+                playerHealth -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
+            }
 			if(destroyProjectiles){
 				Destroy(other.transform.root.gameObject);
 			}
 			SetHealthText();
+            SetHealthSlider();
 		}
 	}
 	
 	void SetHealthText(){
-		healthText.text = "Player Health: " + playerHealth.ToString();
+		healthText.text = playerHealth.ToString() + "%";
+	}
+
+	void SetHealthSlider(){
+		healthSlider.value = playerHealth;
 	}
 	
 	void EndGame(){
