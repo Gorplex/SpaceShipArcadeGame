@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2531fed6c10ee684cb588ed99f7bbe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: Player
   velocity: 30
   maxTime: 10
   damage: 1
@@ -71,6 +72,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3590307102388138592}
     m_Modifications:
+    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
+        type: 3}
+      propertyPath: m_Name
+      value: MissileAlienRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2899984454275875014, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,21 +141,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
-        type: 3}
-      propertyPath: m_Name
-      value: MissileAlienRed
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072523926912135514, guid: 78291fca1e343ce4fb7ccd2419041064,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6056227374118845411, guid: 78291fca1e343ce4fb7ccd2419041064,
         type: 3}

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnInfo : MonoBehaviour{
-	[Tooltip("GameObject that will be spawned.")]
-	public GameObject enemy;
 	[Tooltip("Spwan with at random orentation or same as template.")]
 	public bool randomRotation = true;
 	[Tooltip("First Spawn time (s) from start of game.")]
@@ -28,6 +26,6 @@ public class EnemySpawnInfo : MonoBehaviour{
 		if(randomRotation){
 			rot = Random.rotation;
 		}
-		Instantiate(enemy, spawnCenter +  offset, rot);
+		Instantiate(gameObject, spawnCenter +  offset, rot);
 	}
 }

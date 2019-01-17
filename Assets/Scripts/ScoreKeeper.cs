@@ -35,19 +35,21 @@ public class ScoreKeeper : MonoBehaviour{
 			if(index < points.Length){
 				totalPoints += points[index];
 			}
-			kills[index]++;
+			//kills[index]++;
 			UpdateScore();
 		}
 	}
 	private void UpdateScore(){
-		scoreText.text = "";
-		scoreText.text += "-Score Info-\nPoints: " + totalPoints.ToString()+"\nKills: " + totalKills.ToString();
-		scoreText.text += "\n---KILLS---\n";
-		for(int i=0;i<enemyTypes.Length;i++){
-			scoreText.text += enemyTypes[i].name;
-			scoreText.text += ": ";
-			scoreText.text += kills[i].ToString();
-			scoreText.text += "\n";
+		if(scoreText){
+			scoreText.text = "";
+			scoreText.text += "-Score Info-\nPoints: " + totalPoints.ToString()+"\nKills: " + totalKills.ToString();
+			scoreText.text += "\n---KILLS---\n";
+			for(int i=0;i<enemyTypes.Length;i++){
+				scoreText.text += enemyTypes[i].name;
+				scoreText.text += ": ";
+				scoreText.text += kills[i].ToString();
+				scoreText.text += "\n";
+			}
 		}
 	}
 	

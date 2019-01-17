@@ -24,10 +24,13 @@ public class EnemyShooter : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        transform.LookAt(player.transform);
+		LaunchProjectile();
+    }
+	void LaunchProjectile(){
+		transform.LookAt(player.transform);
 		if(Time.time >= nextLaunch){
 			Instantiate (projectile, transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
 			nextLaunch = Time.time + 1/launchFreq;
 		}
-    }
+	}
 }

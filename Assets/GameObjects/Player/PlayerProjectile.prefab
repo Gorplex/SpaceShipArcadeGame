@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2531fed6c10ee684cb588ed99f7bbe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: Enemy
   velocity: 30
   maxTime: 10
   damage: 1
@@ -71,6 +72,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1237568362454535898}
     m_Modifications:
+    - target: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_Name
+      value: MissileAlienGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 5345247745267681446, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -126,25 +142,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76,
-        type: 3}
-      propertyPath: m_Name
-      value: MissileAlienGreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300858237573045222, guid: bda99b3480484e94eac154a78c49cf76,
+    - target: {fileID: 840877608785551881, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 840877608785551881, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}
-      propertyPath: m_Layer
-      value: 11
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 7520003091214775289, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520003091214775289, guid: bda99b3480484e94eac154a78c49cf76,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 8679631294492048893, guid: bda99b3480484e94eac154a78c49cf76,
         type: 3}

@@ -62,7 +62,6 @@ public class PlayerAnimator : MonoBehaviour{
 	void MoveTowardTargets(){
 		ZAng = Mathf.SmoothDamp(ZAng, ZAngles[ZIndex], ref ZAngVel, ZSmoothTime);
 		XAng = Mathf.SmoothDamp(XAng, XAngles[XIndex], ref XAngVel, XSmoothTime);
-		Debug.Log(ZAng);
 		gameObject.transform.rotation = startingRotation * Quaternion.Euler(XAng, 0, ZAng);
 	} 
 }

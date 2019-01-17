@@ -4,11 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour{
-	[Tooltip("If player will let projectiles pass through (after taking damage) or remove them.")]
-	public bool destroyProjectiles = true;
-	[Tooltip("Player starting health.")]
-	public float playerStartHealth = 1;
+public class PlayerHealth : Health{
 	[Tooltip("Time game is paused when player is hit.")]
 	public float timeFrozen = 5;
 	[Tooltip("Text object refence for player health.")]
@@ -16,39 +12,28 @@ public class PlayerHealth : MonoBehaviour{
 	[Tooltip("Slider object refence for player health.")]
 	public Slider healthSlider;
 	
-	
 	private PlayerController playerController;
-	private float playerHealth;
 	
 	void Start(){
-		//playerController = gameObject.GetComponent(typeof(PlayerController)) as PlayerController;
 		playerController = gameObject.GetComponent<PlayerController>();
-		playerHealth = playerStartHealth;
-		SetHealthText();
-        SetHealthSlider(); 
+		SetHealthText(getHealth());
+        SetHealthSlider(getHealth()); 
 	}
 	
-	void OnTriggerEnter(Collider other){
-		if(other.transform.CompareTag("EnemyProjectile")){
-			if(other.transform.root.gameObject.name.Contains("EnemyProjectile")){
-                playerHealth -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
-            }
-			if(destroyProjectiles){
-				Destroy(other.transform.root.gameObject);
-			}
-			SetHealthText();
-            SetHealthSlider();
-		}
+	protected override void OnDamage(){
+		SetHealthText(getHealth());
+        SetHealthSlider(getHealth());
 	}
-	
-	void SetHealthText(){
-		healthText.text = playerHealth.ToString() + "%";
+	void SetHealthText(float h){
+		healthText.text = h.ToString() + "%";
 	}
 
-	void SetHealthSlider(){
-		healthSlider.value = playerHealth*.8f; // Scaled for slider
+	void SetHealthSlider(float h){
+		healthSlider.value = h*.8f; // Scaled for slider
 	}
 	
+	
+	//Broken stuff
 	void EndGame(){
 		StopScene();
 		//StartCoroutine(Example());

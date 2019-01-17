@@ -64,12 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190558f447526f642b0b3485d8d60195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6775286071904728825}
   randomRotation: 1
   firstSpawnTime: 10
   spawnTime: 5
-  radiusXZ: 10
-  radiusY: 10
+  radiusXZ: 40
+  radiusY: 20
 --- !u!114 &8269400722926643997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157b4431c3985884aa7f18127c9255c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 4
+  maxHealth: 3
+  health: 3
+  scoreKeeper: {fileID: 8497229608095507955, guid: e4c5663e3929b8042a5be832ed068cf3,
+    type: 3}
 --- !u!1 &6775286072236261651
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 6775286073072639484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 50, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 80, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6775286071904728806}
   m_RootOrder: 1

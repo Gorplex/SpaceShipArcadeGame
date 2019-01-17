@@ -160,8 +160,8 @@ MonoBehaviour:
   randomRotation: 0
   firstSpawnTime: 5
   spawnTime: 3
-  radiusXZ: 5
-  radiusY: 10
+  radiusXZ: 20
+  radiusY: 20
 --- !u!114 &6867447996412842680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157b4431c3985884aa7f18127c9255c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 2
+  maxHealth: 2
+  health: 2
+  scoreKeeper: {fileID: 8497229608095507955, guid: e4c5663e3929b8042a5be832ed068cf3,
+    type: 3}
 --- !u!1 &7748741614427375216
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 1430513807282069640, guid: f02e83e57c3ad4949a748c12d1f60c51,
         type: 3}
       propertyPath: m_Name
-      value: RoyalDrone_NeonRed
+      value: SmallEnemyBody
       objectReference: {fileID: 0}
     - target: {fileID: 1430513807282069640, guid: f02e83e57c3ad4949a748c12d1f60c51,
         type: 3}

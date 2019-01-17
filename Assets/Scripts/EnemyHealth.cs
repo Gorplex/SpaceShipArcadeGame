@@ -2,40 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour{
-	public float startingHealth = 4;
-	
-	private float health;
-	private ScoreKeeper scoreKeeper;
-	
-    void Start(){
-        health = startingHealth;
-		scoreKeeper = GameObject.Find("WorldManager").GetComponent<ScoreKeeper>();
-    }
+public class EnemyHealth : Health{
+	[Tooltip("ScoreKeeper script for keeping score(atached to GameManager).")]
+	[SerializeField] public ScoreKeeper scoreKeeper;
 
-    void Update(){
-		
-    }
-	
-	void CheckHealth(){
-		if(health <= 0){
-			//Play Animation
-			if(scoreKeeper){
-				scoreKeeper.Killed(gameObject);
-			}else{
-				Debug.Log("ScoreKeeper missing from EnemyHealth", gameObject);
-			}
-			Destroy(gameObject);
+	protected override void OnDeath(){
+		//base.OnDeath();
+		if(scoreKeeper){
+			scoreKeeper.Killed(gameObject);
+		}else{
+			Debug.Log("ScoreKeeper missing from EnemyHealth", gameObject);
 		}
-	}
-	
-	void OnTriggerEnter(Collider other){
-		//if(other.gameObject.CompareTag("PlayerProjectile")){
-		if(other.CompareTag("PlayerProjectile")){
-		//get other components top level transfrom (root) and destroy it
-			health -= other.transform.root.gameObject.GetComponent<Projectile>().damage;
-			Destroy(other.transform.root.gameObject);
-			CheckHealth();
-		}
+		Destroy(gameObject);
 	}
 }

@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centeredOnPlayer: 0
   enableAll: 1
-  enable: 0101
+  enable: 010101
   enemyTypes:
   - {fileID: 4882900587617980438, guid: f931e7069f82e5747963281ffeee3060, type: 3}
+  - {fileID: 6072434259282426600, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
   - {fileID: 4811913969884281035, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
 --- !u!1 &6747351657409518181
 GameObject:
@@ -93,7 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570c5d14eb7f5eb40a2264e729d4f16d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTypes:
+  scoreText: {fileID: 0}
+  enemyTypes:
   - {fileID: 6775286071904728825, guid: f931e7069f82e5747963281ffeee3060, type: 3}
+  - {fileID: 569200881641187380, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
   - {fileID: 4811913969884281028, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
-  points: 0100000002000000
+  points: 030000000100000002000000
