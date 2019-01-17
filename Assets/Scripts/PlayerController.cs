@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour{
 		Translate();
 		Rotate();
 		Shoot();
+        AnimUpdate();
 	}
 
 	void Rotate(){
@@ -43,9 +44,14 @@ public class PlayerController : MonoBehaviour{
 		Vector3 lat = transform.right * Input.GetAxis ("Horizontal");
 		Vector3 vert = new Vector3(0, 1, 0) * Input.GetAxis("Jump");
 		transform.position += Vector3.Normalize(forw + lat + vert) * moveSpeed*Time.deltaTime;
-		anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 	}
 
+	void AnimUpdate(){
+		anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        anim.SetFloat("Vertical", Input.GetAxis("Jump"));
+	}
+
+    
 	void Shoot(){
 		if (Time.time >= nextProjectile) {
 			if (Input.GetAxis ("Fire1") == 1) {

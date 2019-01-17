@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour{
 	}
 
 	void SetHealthSlider(){
-		healthSlider.value = playerHealth;
+		healthSlider.value = playerHealth*.8f; // Scaled for slider
 	}
 	
 	void EndGame(){

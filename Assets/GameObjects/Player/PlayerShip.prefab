@@ -18960,6 +18960,7 @@ GameObject:
   - component: {fileID: 1017169814743629182}
   - component: {fileID: 2435130760159184130}
   - component: {fileID: 1437555829298627747}
+  - component: {fileID: 1609091419204286028}
   m_Layer: 12
   m_Name: ShipGreenWithPart
   m_TagString: Untagged
@@ -18974,7 +18975,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238839153162957018}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18991,7 +18992,7 @@ Transform:
   - {fileID: 8179710873009987528}
   m_Father: {fileID: 5315583744469850594}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.09375}
 --- !u!33 &2435130760159184130
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19037,6 +19038,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1609091419204286028
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238839153162957018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f1bbd1bf95f87047bea231c7bba7e37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3694487103203495801
 GameObject:
   m_ObjectHideFlags: 0
@@ -19592,7 +19612,7 @@ Camera:
   m_GameObject: {fileID: 4226081872039405713}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -34014,10 +34034,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 9192117215511687428, guid: 544b4a632884b364489817b89573163c,
     type: 3}
-  moveSpeed: 5
-  rotX: 4
-  rotY: 4
+  moveSpeed: 20
+  rotX: 10
+  rotY: 10
   projectileCD: 0.75
+  anim: {fileID: 1609091419204286028}
 --- !u!114 &4532702533778474272
 MonoBehaviour:
   m_ObjectHideFlags: 0
