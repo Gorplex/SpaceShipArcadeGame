@@ -82,9 +82,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  velocity: 10
+  velocity: 15
   maxTime: 10
-  damage: 1
+  damage: 5
   turnSpeed: 0
 --- !u!114 &953423611826194988
 MonoBehaviour:
@@ -270,15 +270,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4197566381305147420, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4197566381305147420, guid: c2bf18755fcc4a747a320a9823414680,
+    - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4861695497023726143, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
@@ -290,15 +290,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
+    - target: {fileID: 4197566381305147420, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197566381305147420, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8485850673018098382, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}

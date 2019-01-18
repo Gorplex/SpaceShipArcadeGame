@@ -64,7 +64,7 @@ MonoBehaviour:
   targetTag: Enemy
   velocity: 30
   maxTime: 10
-  damage: 1
+  damage: 5
 --- !u!1001 &3385977911088740561
 PrefabInstance:
   m_ObjectHideFlags: 0

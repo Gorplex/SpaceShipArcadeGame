@@ -11,7 +11,9 @@ public class EnemyShooter : MonoBehaviour{
 	public float launchFreq = .5f;
 	[Tooltip("Delay(s) for first projectile.")]
 	public float firstLaunch = 2f;
-	
+
+    
+	private Animator recoilAnim;
 	private float nextLaunch;
 	private GameObject player;
 	
@@ -20,6 +22,7 @@ public class EnemyShooter : MonoBehaviour{
 		player = GameObject.Find("PlayerShip");
 		transform.LookAt(player.transform);
         nextLaunch = firstLaunch + Time.time;
+        recoilAnim = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -29,7 +32,8 @@ public class EnemyShooter : MonoBehaviour{
 	void LaunchProjectile(){
 		transform.LookAt(player.transform);
 		if(Time.time >= nextLaunch){
-			Instantiate (projectile, transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
+			recoilAnim.Play("Recoil");
+            Instantiate (projectile, transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
 			nextLaunch = Time.time + 1/launchFreq;
 		}
 	}

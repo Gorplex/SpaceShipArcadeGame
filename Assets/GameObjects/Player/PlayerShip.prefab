@@ -34474,8 +34474,8 @@ MonoBehaviour:
   defaultC: {r: 1, g: 1, b: 1, a: 1}
   activeC: {r: 1, g: 0, b: 1, a: 1}
   moveSpeed: 20
-  rotX: 10
-  rotY: 10
+  rotX: 40
+  rotY: 40
   anim: {fileID: 0}
 --- !u!114 &460761238890672163
 MonoBehaviour:
@@ -34536,7 +34536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoFire: 0
   fireFreq: 5
-  damagePerShot: 0.25
+  damagePerShot: 0.5
   maxRange: 100
   duration: 0.4
   laserColor: {r: 0, g: 1, b: 0, a: 1}
