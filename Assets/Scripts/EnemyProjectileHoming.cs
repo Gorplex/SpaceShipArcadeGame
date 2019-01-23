@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectileHoming : Projectile{
 	
 	#region PrivateSerializedFields
-	#pragma warning disable 649
+	#pragma warning disable 0649
 	
 	[Tooltip("max turn speed.")]
 	[SerializeField]

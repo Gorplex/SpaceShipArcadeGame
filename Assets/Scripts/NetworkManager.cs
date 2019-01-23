@@ -6,7 +6,7 @@ using UnityEngine;
 public class NetworkManager : MonoBehaviour {
     
 	#region PrivateSerializedFields
-	#pragma warning disable 649
+	#pragma warning disable 0649
 	
 	[Tooltip("The prefab to use for representing the player")]
 	[SerializeField]

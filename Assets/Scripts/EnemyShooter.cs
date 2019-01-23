@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour{
 	
 	#region PrivateSerializedFields
-	#pragma warning disable 649
+	#pragma warning disable 0649
 	
 	[Tooltip("Refence to EnemyProjectile GameObject.")]
 	[SerializeField]

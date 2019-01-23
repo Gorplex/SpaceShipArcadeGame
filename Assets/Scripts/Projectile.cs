@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour{
 	
 	#region PrivateSerializedFields
-	#pragma warning disable 649
+	#pragma warning disable 0649
 	
 	[Tooltip("tag the projectile will damage.")]
     [SerializeField] 
