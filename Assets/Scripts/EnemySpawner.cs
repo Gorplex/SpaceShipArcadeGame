@@ -3,27 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
+	
+	#region RegionName
+	#pragma warning disable 0649
+	
 	[Tooltip("Otherwise centerd on EnemySpawner transform.")]
-	public bool centeredOnPlayer = false;
+	[SerializeField]
+	private bool centeredOnPlayer = false;
 	[Tooltip("Enables EnemySpawner to spawn any Enemies.")]
-	public bool enableAll = true;
+	[SerializeField]
+	private bool enableAny = true;
 	[Tooltip("Enables each Enemy individualy. Must be as big as enemyTypes.")]
-	public bool[] enable;
+	[SerializeField]
+	private bool[] enable;
 	[Tooltip("Refrences to each EnemySpawnInfo script(atached to each Enemy type template). Must be as big as enable.")]
-	public EnemySpawnInfo[] enemyTypes;
+	[SerializeField]
+	private EnemySpawnInfo[] enemyTypes;
+		
+	#pragma warning restore 0649
+	#endregion
 	
 	private GameObject player;
+	private bool startedSpawns = false;
 	
-    void Start(){
-		player = GameObject.Find("PlayerShip");
-		if(enableAll){
-			IterateSpawnList();
+	void Update(){
+		if(!startedSpawns && enableAny){
+			//BAD SOLUTION TO CHECK FOR A PLAYER
+			if((player = GameObject.Find("Player(Clone)"))){
+				Debug.Log("Spawning Started");
+				IterateSpawnList();
+				startedSpawns = true;
+			}
 		}
-    }
+		
+	}
 	
 	void IterateSpawnList(){
 		for(int i=0;i<enable.Length && i<enemyTypes.Length;i++){
-		//foreach(EnemySpawnInfo enemy in enemyTypes){
 			if(enable[i] && enemyTypes[i]){
 				if(centeredOnPlayer){
 					enemyTypes[i].StartSpawning(player.transform.position, player);
