@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour {
 		if(!startedSpawns && enableAny){
 			//BAD SOLUTION TO CHECK FOR A PLAYER
 			if((player = GameObject.Find("Player(Clone)"))){
-				Debug.Log("Spawning Started");
+				//Debug.Log("Spawning Started");
 				IterateSpawnList();
 				startedSpawns = true;
 			}

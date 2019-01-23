@@ -3,6 +3,10 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour{
 	
+	//for use with events listeners
+	public const string enable = "EnablePlayerControll";
+	public const string disable = "DisablePlayerControll";
+	
 	[Tooltip("Shows debug raycast(only in Scene view.")]
 	[SerializeField] private bool showRaycast = false;
 	[Tooltip("Enables rendering of Targeting Cylinder.")]
@@ -27,7 +31,23 @@ public class PlayerController : MonoBehaviour{
 	public Animator anim;
 	
 	private Renderer targetingCylRend;
-
+	private bool controllsEnabled = true;
+	
+	void OnEnable(){
+		EventManager.StartListening(enable, EnableControlls);
+		EventManager.StartListening(disable, DisableControlls);
+	}
+	void OnDisable(){
+		EventManager.StopListening(enable, EnableControlls);
+		EventManager.StopListening(disable, DisableControlls);
+	}
+	private void EnableControlls(){
+		controllsEnabled = true;
+	}
+	private void DisableControlls(){
+		controllsEnabled = false;
+	}
+	
 	void Start(){
 		if(!targetingCyl){
 			targetingCyl = transform.Find("TargetingCylinder").gameObject;
@@ -40,9 +60,11 @@ public class PlayerController : MonoBehaviour{
 	}
 	
 	void Update() {
-		Translate();
-		Rotate();
-        AnimUpdate();
+		if(controllsEnabled){
+			Translate();
+			Rotate();
+			AnimUpdate();
+		}
 		UpdateTargeting();
 	}
 	void UpdateTargeting(){
