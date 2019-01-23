@@ -14,6 +14,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	[Tooltip("The UI Text to inform the user about the connection progress.")]
 	[SerializeField]
 	private GameObject deadCamera;
+	[Tooltip("Refence to crosshairs for enabling.")]
+    [SerializeField] 
+	private GameObject crosshairs;
 	[Tooltip("The UI Text to inform the user about the connection progress.")]
 	[SerializeField]
 	private Text feedbackText;
@@ -47,7 +50,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 			feedbackText.text += "\n"+message;
 	}
 	
-
+	public static void CheckedSetActive(GameObject obj, bool active, string name){
+		if(obj){
+			obj.SetActive(active);
+		}else{
+			Debug.Log("<Color=Red><b>Missing</b></Color> " + name + " refrence in NetworkManager.cs atached to GameManager GameObject");
+		}
+	}
 	
 	//#region PhotonExampleCode 
 	//Code region from "PUN Basic tutorial" to connect, and join/create room automatically
@@ -126,8 +135,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 		// #Critical: we failed to connect or got disconnected. There is not much we can do. Typically, a UI system should be in place to let the user attemp to connect again.
 
 		intentToConnect = false;
-		if(deadCamera)
-			deadCamera.SetActive(true);
+		CheckedSetActive(crosshairs, false, "crosshairs");
+		CheckedSetActive(deadCamera, true, "deadCamera");
 	}
 	
 	/// <summary>
@@ -161,8 +170,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	#endregion
 	//#endregion //of PhotonExampleCode
 	void StartSpawnProcess(float respawnTime){
-		if(deadCamera)
-			deadCamera.SetActive(true);
+		CheckedSetActive(crosshairs, false, "crosshairs");
+		CheckedSetActive(deadCamera, true, "deadCamera");
 		StartCoroutine("SpawnPlayer", respawnTime);
 	}
 	IEnumerator SpawnPlayer(float respawnTime){
@@ -174,8 +183,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 		}else{
 			Debug.Log("NetworkManager.cs atached to GameManager GameObject missing playerPrefab");
 		}
-		if(deadCamera)
-			deadCamera.SetActive(false);
+		CheckedSetActive(crosshairs, true, "crosshairs");
+		CheckedSetActive(deadCamera, false, "deadCamera");
 	}
 	
 }

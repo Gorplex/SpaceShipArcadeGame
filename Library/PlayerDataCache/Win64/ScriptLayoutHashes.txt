@@ -140,7 +140,7 @@ bc604856eb7b85888176dfc2daaaa7fc Assembly-CSharp.dll:.EnemySpawnInfo
 78b64ea096cbb4261f79271bb99f2a2a Assembly-CSharp.dll:.PlayerController
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 57d2b3ca58a430f7cf319bb757c1f0f5 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnClickInstantiate
-aafe3a4a52f4923b6246c8a6e6f10adf Assembly-CSharp.dll:.NetworkManager
+f6fcdd12dab3bd78b4d1921ac5642c89 Assembly-CSharp.dll:.NetworkManager
 ed6577c3de965f023809c2446d9b3a6a Assembly-CSharp.dll:.Projectile
 58f2afabd5040e886cc4670a75b8765c PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.StatesGui
 0927e41b46e1bd11671f9b5adda4b832 PhotonUnityNetworking.dll:Photon.Pun.PhotonRigidbodyView
@@ -202,7 +202,7 @@ c5fd97cc10b89deaf7c60af66a6b0d5a PhotonRealtime.dll:Photon.Realtime.SupportLogge
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2b53d93770b9036b2fd1c7854560bc69 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.MoveByKeys
 71bb6a6b6c8f052f948db64c7dd3ca4f PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnEscapeQuit
-4458866ba83a3da44a7008a7664d8f18 Assembly-CSharp.dll:.PlayerNetworkManager
+131559bd3e31be31b282db853faf55bb Assembly-CSharp.dll:.PlayerNetworkManager
 e54ada8f7a127a6500ab1fbb4a282b21 Assembly-CSharp.dll:.PlayerHitscanWeapon
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient

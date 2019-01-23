@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centeredOnPlayer: 0
-  enableAll: 1
+  enableAny: 1
   enable: 010101
   enemyTypes:
   - {fileID: 4882900587617980438, guid: f931e7069f82e5747963281ffeee3060, type: 3}
@@ -114,8 +114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73ec2c6df3d1994fb454428e74d85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadCamera: {fileID: 0}
+  crosshairs: {fileID: 0}
+  feedbackText: {fileID: 0}
+  maxPlayersPerRoom: 4
   playerPrefab: {fileID: 5315583744469850620, guid: 87faa9752d1a1b94b88aa40b3760d446,
     type: 3}
+  gameVersion: 0.1
 --- !u!114 &5342657552728548536
 MonoBehaviour:
   m_ObjectHideFlags: 0

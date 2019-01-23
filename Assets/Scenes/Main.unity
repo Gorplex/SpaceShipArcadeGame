@@ -338,12 +338,12 @@ GameObject:
   - component: {fileID: 540680625}
   - component: {fileID: 540680624}
   m_Layer: 5
-  m_Name: CrossHairs
-  m_TagString: Untagged
+  m_Name: Crosshairs
+  m_TagString: Crosshairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &540680623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -809,6 +809,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6747351657409518182, guid: e4c5663e3929b8042a5be832ed068cf3,
+        type: 3}
+      propertyPath: deadCamera
+      value: 
+      objectReference: {fileID: 2079125243}
+    - target: {fileID: 6747351657409518182, guid: e4c5663e3929b8042a5be832ed068cf3,
+        type: 3}
+      propertyPath: crosshairs
+      value: 
+      objectReference: {fileID: 540680622}
     - target: {fileID: 6747351657409518182, guid: e4c5663e3929b8042a5be832ed068cf3,
         type: 3}
       propertyPath: feedbackText
