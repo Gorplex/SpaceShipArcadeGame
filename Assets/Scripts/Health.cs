@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour{
+	
+	#region PrivateSerializeFields
+	#pragma warning disable 649
+	
 	[Tooltip("Max health.")]
-	[SerializeField] private float maxHealth = 1; 
+	[SerializeField]
+	private float maxHealth = 1; 
 	[Tooltip("starting health.")]
-	[SerializeField] private float health = 1; 	
+	[SerializeField] 
+	private float health = 1; 	
+	
+	#pragma warning restore 0649
+	#endregion
 	
 	private bool dead = false;
+	
 	protected virtual void OnDeath(){
 		
 	}

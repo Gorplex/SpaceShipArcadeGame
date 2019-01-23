@@ -3,21 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour{
+	
+	#region PrivateSerializedFields
+	#pragma warning disable 649
+	
 	[Tooltip("tag the projectile will damage.")]
-    public string targetTag;
+    [SerializeField] 
+	private string targetTag;
 	[Tooltip("Speed of projectile.")]
-    public float velocity = 10;
+    [SerializeField] 
+	private float velocity = 10;
 	[Tooltip("Max lifetime of projectile in seconds.")]
-    public float maxTime = 10;
+    [SerializeField] 
+	private float maxTime = 10;
 	[Tooltip("damage projectile will deal to a target.")]
-    [SerializeField] private float damage = 1;
+    [SerializeField] 
+	private float damage = 1;
     
+	#pragma warning restore 0649
+	#endregion
+	
 	protected virtual void Start(){
 		Destroy(gameObject, maxTime);
     }
     protected virtual void Update(){
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
     }
+	public string getTargetTag(){
+		return targetTag;
+	}
 	//TakeDamage
 	protected virtual void OnTriggerEnter(Collider other){
 		if(other.CompareTag(targetTag)){
@@ -30,7 +44,7 @@ public class Projectile : MonoBehaviour{
 			explode();
 		}
 	}
-	 protected virtual void explode(){
+	public virtual void explode(){
 		//play animation
 		Destroy(gameObject);
 	}

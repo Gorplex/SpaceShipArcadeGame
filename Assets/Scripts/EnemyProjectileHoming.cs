@@ -3,19 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyProjectileHoming : Projectile{
-	//[Tooltip("Player targeted by homing projectile.")]
-    //public GameObject player;
+	
+	#region PrivateSerializedFields
+	#pragma warning disable 649
+	
 	[Tooltip("max turn speed.")]
-    public float turnSpeed;
+	[SerializeField]
+    private float turnSpeed;
+	
+	#pragma warning restore 0649
+	#endregion
 	
 	private GameObject player;
 	
     protected override void Start(){
         base.Start();
-		player = GameObject.Find("PlayerShip");
+		foreach(GameObject obj in GameObject.FindGameObjectsWithTag(this.getTargetTag()))
+			player = obj;
+		LookAtPlayer();
     }
     protected override void Update(){
 		base.Update();
-		transform.LookAt(player.transform);
+		if(player){
+			transform.LookAt(player.transform);
+		}else{
+			Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
+		}
     }
+	void LookAtPlayer(){
+		if(player){
+			transform.LookAt(player.transform);
+		}else{
+			Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
+		}
+	}
 }
