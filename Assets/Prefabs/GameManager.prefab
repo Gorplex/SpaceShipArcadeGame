@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6747351657409518180}
   - component: {fileID: 8497229608095507955}
   - component: {fileID: 6747351657409518182}
-  - component: {fileID: 5342657552728548536}
+  - component: {fileID: 8787125652785686622}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -118,10 +118,9 @@ MonoBehaviour:
   crosshairs: {fileID: 0}
   feedbackText: {fileID: 0}
   maxPlayersPerRoom: 4
-  playerPrefab: {fileID: 5315583744469850620, guid: 87faa9752d1a1b94b88aa40b3760d446,
-    type: 3}
+  playerPrefab: {fileID: 99, guid: 87faa9752d1a1b94b88aa40b3760d446, type: 3}
   gameVersion: 0.1
---- !u!114 &5342657552728548536
+--- !u!114 &8787125652785686622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,6 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6747351657409518181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0b1f7de8ce28241be433767e1f92f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7388d51d237cf5640b802e85e504f91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

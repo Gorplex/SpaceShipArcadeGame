@@ -15,4 +15,10 @@ public class EnemyHealth : Health{
 		}
 		Destroy(gameObject);
 	}
+	protected void OnEnable(){
+		EventManager.StartListening("KillAllEnemies", OnDeath);
+	}
+	protected void OnDisable(){
+		EventManager.StopListening("KillAllEnemies", OnDeath);
+	}
 }

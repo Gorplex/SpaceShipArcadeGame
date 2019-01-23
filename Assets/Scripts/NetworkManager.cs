@@ -181,7 +181,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 			//Instantiate(this.playerPrefab, new Vector3(0f,0f,0f), Quaternion.identity);
 			PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity);
 		}else{
-			Debug.Log("NetworkManager.cs atached to GameManager GameObject missing playerPrefab");
+			Debug.Log("<Color=Red><b>Missing</b></Color> playerPrefab from NetworkManager.cs atached to GameManager GameObject");
 		}
 		CheckedSetActive(crosshairs, true, "crosshairs");
 		CheckedSetActive(deadCamera, false, "deadCamera");

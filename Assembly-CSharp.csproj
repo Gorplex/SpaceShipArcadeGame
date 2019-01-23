@@ -53,13 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CursorLock.cs" />
+     <Compile Include="Assets\Scripts\ButtonInputs.cs" />
      <Compile Include="Assets\Scripts\EnemyAxisRotator.cs" />
      <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectileHoming.cs" />
      <Compile Include="Assets\Scripts\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnInfo.cs" />
+     <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
@@ -69,7 +70,8 @@
      <Compile Include="Assets\Scripts\PlayerNetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerProjectileWeapon.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Scripts\RefrenceCode.cs" />
+     <Compile Include="Assets\Scripts\Refrence\CursorLock.cs" />
+     <Compile Include="Assets\Scripts\Refrence\RefrenceCode.cs" />
      <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
      <Compile Include="Assets\Scripts\UtilityFuncs.cs" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
