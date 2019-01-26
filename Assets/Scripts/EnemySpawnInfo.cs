@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class EnemySpawnInfo : MonoBehaviour{
+using Photon;
+using Photon.Pun;
+using Photon.Realtime;
+
+public class EnemySpawnInfo : MonoBehaviourPunCallbacks {
 	
 	//ADD
 	//!Physics.CheckSphere(spawnPoint,2);
@@ -37,8 +42,10 @@ public class EnemySpawnInfo : MonoBehaviour{
 	private Vector3 spawnCenter;
 	
 	public void StartSpawning(Vector3 spawnCenterLocation, GameObject PlayerShip){
-		spawnCenter = spawnCenterLocation;
-		InvokeRepeating("Spawn", firstSpawnTime, spawnTime);
+        if(PhotonNetwork.IsMasterClient){
+            spawnCenter = spawnCenterLocation;
+            InvokeRepeating("Spawn", firstSpawnTime, spawnTime);
+        }
 	}
 	private void Spawn(){
 		Vector3 offset = new Vector3(Random.Range(-radiusXZ,radiusXZ),Random.Range(-radiusY,radiusY),Random.Range(-radiusXZ,radiusXZ));
@@ -46,6 +53,7 @@ public class EnemySpawnInfo : MonoBehaviour{
 		if(randomRotation){
 			rot = Random.rotation;
 		}
-		Instantiate(gameObject, spawnCenter +  offset, rot);
+        //string name = AssetDatabase.GetAssetPath(gameObject).Split('/')[2].Split('.')[0];
+		PhotonNetwork.Instantiate(gameObject.name, spawnCenter +  offset, rot);
 	}
 }

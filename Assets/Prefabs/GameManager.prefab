@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73ec2c6df3d1994fb454428e74d85a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   deadCamera: {fileID: 0}
   crosshairs: {fileID: 0}
   feedbackText: {fileID: 0}

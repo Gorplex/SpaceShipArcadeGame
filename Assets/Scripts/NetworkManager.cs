@@ -5,7 +5,6 @@ using Photon;
 using Photon.Realtime;
 using Photon.Pun;
 
-//public class NetworkManager : MonoBehaviourPunCallbacks {
 public class NetworkManager : MonoBehaviourPunCallbacks {
     
 	#region PrivateSerializedFields
@@ -14,6 +13,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	[Tooltip("DebugLogging.")]
 	[SerializeField]
 	private bool debug = false;
+    
 	[Tooltip("The UI Text to inform the user about the connection progress.")]
 	[SerializeField]
 	private GameObject deadCamera;
@@ -23,6 +23,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	[Tooltip("The UI Text to inform the user about the connection progress.")]
 	[SerializeField]
 	private Text feedbackText;
+    [Tooltip("The UI Text to for respawn timer.")]
+	[SerializeField]
+	private Text respawnTimer;
+    [Tooltip("RespanTimer update period")]
+	[SerializeField]
+	private float updatePeriod = 0.1f;
 	[Tooltip("The maximum number of players per room.")]
 	[SerializeField]
 	private byte maxPlayersPerRoom = 4;
@@ -172,7 +178,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 			//Disabled Relaing Starting scene
 			//PhotonNetwork.LoadLevel("Main");
 		}
-		StartSpawnProcess(0);
+		StartSpawnProcess(5f);
 	}
 
 	#endregion
@@ -181,18 +187,30 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 		CheckedSetActive(crosshairs, false, "crosshairs");
 		CheckedSetActive(deadCamera, true, "deadCamera");
 		StartCoroutine("SpawnPlayer", respawnTime);
+        StartCoroutine("WaitAndUpdateTimer", respawnTime);
 	}
+    
+    IEnumerator WaitAndUpdateTimer(float respawnTime){
+        while(respawnTime>0){
+            respawnTime -= updatePeriod;
+            respawnTimer.text = respawnTime.ToString();
+            yield return new WaitForSeconds(updatePeriod);
+        }
+        respawnTimer.text = "";
+    }
+    
 	IEnumerator SpawnPlayer(float respawnTime){
-		yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(respawnTime);
 		
 		if(playerPrefab){
 			//Instantiate(this.playerPrefab, new Vector3(0f,0f,0f), Quaternion.identity);
-			PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity);
-		}else{
+			GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity);
+            player.GetComponent<PlayerHealth>().RespawnMe += StartSpawnProcess;
+            CheckedSetActive(crosshairs, true, "crosshairs");
+            CheckedSetActive(deadCamera, false, "deadCamera");
+        }else{
 			Debug.Log("<Color=Red><b>Missing</b></Color> playerPrefab from NetworkManager.cs atached to GameManager GameObject");
 		}
-		CheckedSetActive(crosshairs, true, "crosshairs");
-		CheckedSetActive(deadCamera, false, "deadCamera");
 	}
 	
 }

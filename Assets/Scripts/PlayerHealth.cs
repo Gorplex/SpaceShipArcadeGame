@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon;
+using Photon.Pun;
 
 public class PlayerHealth : Health{
-	[Tooltip("Time game is paused when player is hit.")]
-	public float timeFrozen = 5;
+	
+    public delegate void Respawn(float time);
+    public event Respawn RespawnMe;
+    
+    #region PrivateSerializeFields
+	#pragma warning disable 0649
+    
 	[Tooltip("Text object refence for player health.")]
-	public Text healthText;
+    [SerializeField]
+	private Text healthText;
 	[Tooltip("Slider object refence for player health.")]
-	public Slider healthSlider;
+    [SerializeField]
+	private Slider healthSlider;
+    [Tooltip("playerRespawnTime.")]
+    [SerializeField]
+	private float playerRespawnTime = 5f;
+    
+    #pragma warning restore 0649
+	#endregion
 	
 	private PlayerController playerController;
 	
@@ -31,30 +46,10 @@ public class PlayerHealth : Health{
 	void SetHealthSlider(float h){
 		healthSlider.value = h*.8f; // Scaled for slider
 	}
-	
-	
-	//Broken stuff
-	void EndGame(){
-		StopScene();
-		//StartCoroutine(Example());
-		//Invoke("RestartScene", timeFrozen);
-	}
-	
-	IEnumerator Example(){
-        StopScene();
-        yield return new WaitForSecondsRealtime(5);
-        RestartScene();
+    
+    protected override void OnDeath(){
+        if(RespawnMe != null)
+                RespawnMe(playerRespawnTime);
+        PhotonNetwork.Destroy(gameObject);
     }
-	
-	void StopScene(){
-		playerController.enabled = false;
-		Time.timeScale = 0;
-	}
-	
-	void RestartScene(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-		Time.timeScale = 1;
-		playerController.enabled = true;
-		
-	}
 }
