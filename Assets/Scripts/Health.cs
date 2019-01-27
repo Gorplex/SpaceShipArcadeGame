@@ -27,7 +27,7 @@ public class Health : MonoBehaviour, IPunObservable{
 	protected virtual void OnDamage(){
 		
 	}
-    public virtual void Update(){
+    protected virtual void Update(){
         if(health <= 0){
 			Kill();
 		}

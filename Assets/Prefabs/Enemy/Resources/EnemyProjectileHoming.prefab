@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 148}
+  - component: {fileID: 152}
   - component: {fileID: 225}
-  - component: {fileID: 314}
-  - component: {fileID: 312}
-  - component: {fileID: 302}
+  - component: {fileID: 318}
+  - component: {fileID: 316}
   - component: {fileID: 308}
-  - component: {fileID: 319}
-  - component: {fileID: 311}
+  - component: {fileID: 312}
+  - component: {fileID: 323}
+  - component: {fileID: 315}
   m_Layer: 9
   m_Name: EnemyProjectileHoming
   m_TagString: Enemy
@@ -23,7 +23,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &148
+--- !u!4 &152
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7883130291955541849}
-  - {fileID: 154}
+  - {fileID: 160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,7 +55,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &314
+--- !u!114 &318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
   spawnTime: 6
   radiusXZ: 5
   radiusY: 10
---- !u!114 &312
+--- !u!114 &316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,8 @@ MonoBehaviour:
   maxTime: 10
   damage: 5
   turnSpeed: 0
---- !u!114 &302
+  playerTag: Player
+--- !u!114 &308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,8 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
-  scoreKeeper: {fileID: 266, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
---- !u!114 &308
+  scoreKeeper: {fileID: 292, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
+  isBoss: 0
+--- !u!114 &312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +124,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 311}
+  - {fileID: 315}
+  - {fileID: 308}
   viewIdField: 3
   InstantiationId: 3
   isRuntimeInstantiated: 0
---- !u!114 &319
+--- !u!114 &323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +145,7 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &311
+--- !u!114 &315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +160,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!1 &105
+--- !u!1 &107
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +168,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 154}
+  - component: {fileID: 160}
   - component: {fileID: 216}
   - component: {fileID: 201}
   - component: {fileID: 243}
@@ -176,18 +179,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &154
+--- !u!4 &160
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105}
+  m_GameObject: {fileID: 107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.595}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 148}
+  m_Father: {fileID: 152}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &216
@@ -196,7 +199,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105}
+  m_GameObject: {fileID: 107}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &201
 MeshRenderer:
@@ -204,7 +207,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105}
+  m_GameObject: {fileID: 107}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -241,7 +244,7 @@ SphereCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105}
+  m_GameObject: {fileID: 107}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -253,23 +256,8 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 148}
+    m_TransformParent: {fileID: 152}
     m_Modifications:
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Name
-      value: MissileAlienSilver
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 395168222807719030, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,6 +312,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Name
+      value: MissileAlienSilver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}

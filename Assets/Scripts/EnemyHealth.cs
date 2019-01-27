@@ -5,9 +5,20 @@ using Photon;
 using Photon.Pun;
 
 public class EnemyHealth : Health{
+    
+    #region PrivateSerializedFields
+	#pragma warning disable 0649
+    
 	[Tooltip("ScoreKeeper script for keeping score(atached to GameManager).")]
-	[SerializeField] public ScoreKeeper scoreKeeper;
+	[SerializeField]
+    private ScoreKeeper scoreKeeper;
+    [Tooltip("Is this enemy a boss.")]
+	[SerializeField]
+    private bool isBoss = false;
 
+    #pragma warning restore 0649
+	#endregion
+    
 	protected override void OnDeath(){
 		if(scoreKeeper){
 			scoreKeeper.Killed(gameObject);
@@ -20,9 +31,11 @@ public class EnemyHealth : Health{
         }
 	}
 	protected void OnEnable(){
-		EventManager.StartListening("KillAllEnemies", OnDeath);
+        if(!isBoss)
+            EventManager.StartListening("KillAllEnemies", OnDeath);
 	}
 	protected void OnDisable(){
-		EventManager.StopListening("KillAllEnemies", OnDeath);
+        if(!isBoss)
+            EventManager.StopListening("KillAllEnemies", OnDeath);
 	}
 }

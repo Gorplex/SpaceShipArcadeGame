@@ -7,29 +7,52 @@ public class PlayerController : MonoBehaviour{
 	public const string enable = "EnablePlayerControll";
 	public const string disable = "DisablePlayerControll";
 	
+    #region PrivateSerializedFields
+	#pragma warning disable 0649
+    
 	[Tooltip("Shows debug raycast(only in Scene view.")]
-	[SerializeField] private bool showRaycast = false;
+	[SerializeField] 
+    private bool showRaycast = false;
 	[Tooltip("Enables rendering of Targeting Cylinder.")]
-	[SerializeField] private bool showTargetingCyl = true;
+	[SerializeField] 
+    private bool showTargetingCyl = true;
 	[Tooltip("LayerMask of enemies to change color on.")]
-	[SerializeField] public LayerMask layerMask;
+	[SerializeField]
+    private LayerMask layerMask;
 	[Tooltip("Targeting cylinder to enable out of fron of player.")]
-	[SerializeField] public GameObject targetingCyl;
+	[SerializeField]
+    private GameObject targetingCyl;
 	[Tooltip("Default Color of Targeting Cylinder.")]
-	[SerializeField] public Color defaultC = Color.white;
+	[SerializeField]
+    private Color defaultC = Color.white;
 	[Tooltip("Color of Targeting Cylinder when over an Enemy.")]
-	[SerializeField] public Color activeC = Color.magenta;
+	[SerializeField]
+    private Color activeC = Color.magenta;
 	
 	
 	[Tooltip("Player move speed in XYZ.")]
-	public float moveSpeed = 5;
+    [SerializeField]
+	private float moveSpeed = 5;
 	[Tooltip("X sensitivity(mouse).")]
-	public float rotX = 4;
+    [SerializeField]
+	private float rotX = 4;
 	[Tooltip("Y sensitivity(mouse).")]
-	public float rotY = 4;
+    [SerializeField]
+	private float rotY = 4;
+    [Tooltip("X look max angle.")]
+    [SerializeField]
+	private float maxX = 80;
+    [Tooltip("X look min angle.")]
+    [SerializeField]
+	private float minX = -80;
 	[Tooltip("Animator refrence.")]
-	public Animator anim;
+    [SerializeField]
+	private Animator anim;
 	
+    #pragma warning restore 0649
+	#endregion
+	
+    
 	private Renderer targetingCylRend;
 	private bool controllsEnabled = true;
 	
@@ -79,8 +102,11 @@ public class PlayerController : MonoBehaviour{
 		//transform.Rotate(new Vector3 (0, x, 0), Space.World);
 		float y = rotY * Input.GetAxis("Mouse Y");
 		//transform.Rotate(new Vector3 (-1 * y, 0, 0) , Space.Self);
-		transform.eulerAngles += new Vector3 (-1 * y, x, 0);
-
+        //BROKEN
+        /*if(transform.eulerAngles.x<=maxX && transform.eulerAngles.x>=minX){
+            transform.Rotate(new Vector3 (0, x, 0));
+        }*/
+        transform.Rotate(new Vector3 (-1 * y, x, 0));
 	}
 
 	void Translate(){

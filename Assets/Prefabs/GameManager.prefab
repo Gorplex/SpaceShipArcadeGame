@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &94
+--- !u!1 &97
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 143}
-  - component: {fileID: 264}
+  - component: {fileID: 146}
+  - component: {fileID: 290}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &143
+--- !u!4 &146
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94}
+  m_GameObject: {fileID: 97}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 144}
+  m_Father: {fileID: 148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &264
+--- !u!114 &290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94}
+  m_GameObject: {fileID: 97}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af04b05927582d44989257f451fac06d, type: 3}
@@ -45,12 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centeredOnPlayer: 0
   enableAny: 1
-  enable: 010101
+  enable: 01010101
   enemyTypes:
-  - {fileID: 310, guid: f931e7069f82e5747963281ffeee3060, type: 3}
-  - {fileID: 314, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
-  - {fileID: 309, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
---- !u!1 &95
+  - {fileID: 1451502281830306602, guid: a03ef04fa666bff4c94d76965c3fd48d, type: 3}
+  - {fileID: 314, guid: f931e7069f82e5747963281ffeee3060, type: 3}
+  - {fileID: 318, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
+  - {fileID: 313, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
+--- !u!1 &99
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,10 +59,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 144}
-  - component: {fileID: 266}
-  - component: {fileID: 265}
-  - component: {fileID: 267}
+  - component: {fileID: 148}
+  - component: {fileID: 292}
+  - component: {fileID: 291}
+  - component: {fileID: 293}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -69,28 +70,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &144
+--- !u!4 &148
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95}
+  m_GameObject: {fileID: 99}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 143}
+  - {fileID: 146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &266
+--- !u!114 &292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95}
+  m_GameObject: {fileID: 99}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 570c5d14eb7f5eb40a2264e729d4f16d, type: 3}
@@ -98,17 +99,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   enemyTypes:
-  - {fileID: 99, guid: f931e7069f82e5747963281ffeee3060, type: 3}
+  - {fileID: 8244320402997146274, guid: a03ef04fa666bff4c94d76965c3fd48d, type: 3}
+  - {fileID: 102, guid: f931e7069f82e5747963281ffeee3060, type: 3}
   - {fileID: 87, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
-  - {fileID: 93, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
+  - {fileID: 94, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
   points: 030000000100000002000000
---- !u!114 &265
+--- !u!114 &291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95}
+  m_GameObject: {fileID: 99}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c73ec2c6df3d1994fb454428e74d85a4, type: 3}
@@ -121,16 +123,16 @@ MonoBehaviour:
   respawnTimer: {fileID: 0}
   updatePeriod: 1
   maxPlayersPerRoom: 4
-  playerPrefab: {fileID: 83, guid: 87faa9752d1a1b94b88aa40b3760d446, type: 3}
+  playerPrefab: {fileID: 90, guid: 87faa9752d1a1b94b88aa40b3760d446, type: 3}
   firstSpawnTime: 2
   gameVersion: 0.1
---- !u!114 &267
+--- !u!114 &293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95}
+  m_GameObject: {fileID: 99}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7388d51d237cf5640b802e85e504f91a, type: 3}

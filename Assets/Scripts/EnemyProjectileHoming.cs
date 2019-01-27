@@ -10,6 +10,9 @@ public class EnemyProjectileHoming : Projectile{
 	[Tooltip("max turn speed.")]
 	[SerializeField]
     private float turnSpeed;
+    [Tooltip("Player tag string.")]
+	[SerializeField]
+	private string playerTag = "Player";
 	
 	#pragma warning restore 0649
 	#endregion
@@ -18,23 +21,21 @@ public class EnemyProjectileHoming : Projectile{
 	
     protected override void Start(){
         base.Start();
-		foreach(GameObject obj in GameObject.FindGameObjectsWithTag(this.getTargetTag()))
-			player = obj;
 		LookAtPlayer();
     }
     protected override void Update(){
 		base.Update();
-		if(player){
-			transform.LookAt(player.transform);
-		}else{
-			Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
-		}
+        LookAtPlayer();
     }
 	void LookAtPlayer(){
 		if(player){
 			transform.LookAt(player.transform);
 		}else{
-			Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
-		}
+            if(!(player = GameObject.FindWithTag(playerTag))){
+                Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
+            }else{
+                transform.LookAt(player.transform);
+            }
+        }
 	}
 }
