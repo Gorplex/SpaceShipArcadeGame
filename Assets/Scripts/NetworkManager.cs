@@ -35,6 +35,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	[Tooltip("The prefab to use for representing the player.")]
 	[SerializeField]
 	private GameObject playerPrefab;
+    [Tooltip("Delay before the player spawns for the frist time.")]
+	[SerializeField]
+	private float firstSpawnTime = 2;
 	[Tooltip("This client's version number. Users are separated from each other by gameVersion.")]
 	[SerializeField]
 	private string gameVersion = "0.1";
@@ -178,7 +181,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 			//Disabled Relaing Starting scene
 			//PhotonNetwork.LoadLevel("Main");
 		}
-		StartSpawnProcess(5f);
+		StartSpawnProcess(firstSpawnTime);
 	}
 
 	#endregion

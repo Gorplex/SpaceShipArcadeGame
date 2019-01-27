@@ -20,7 +20,7 @@ public class PlayerHealth : Health{
 	[Tooltip("Slider object refence for player health.")]
     [SerializeField]
 	private Slider healthSlider;
-    [Tooltip("playerRespawnTime.")]
+    [Tooltip("Player respawn time.")]
     [SerializeField]
 	private float playerRespawnTime = 5f;
     
@@ -50,6 +50,7 @@ public class PlayerHealth : Health{
     protected override void OnDeath(){
         if(RespawnMe != null)
                 RespawnMe(playerRespawnTime);
+        base.OnDeath();
         PhotonNetwork.Destroy(gameObject);
     }
 }

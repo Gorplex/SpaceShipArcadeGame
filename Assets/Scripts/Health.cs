@@ -22,17 +22,20 @@ public class Health : MonoBehaviour, IPunObservable{
 	private bool dead = false;
 	
 	protected virtual void OnDeath(){
-		
+
 	}
 	protected virtual void OnDamage(){
 		
 	}
+    public virtual void Update(){
+        if(health <= 0){
+			Kill();
+		}
+    }
+    
 	public void TakeDamage(float damage){
 		health-=damage;
 		OnDamage();
-		if(health <= 0){
-			Kill();
-		}
 	}
 	public void Kill(){
 		if(!dead){
