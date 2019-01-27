@@ -19,6 +19,10 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	[SerializeField] public LayerMask layerMask;
 	[Tooltip("Refences to Laser Cyliender GameObjects.")]
 	public GameObject[] lasers;
+	[Tooltip("Laser sound effect reference.")]
+	public AudioClip laserSound0;
+	[Tooltip("Sound effect source reference.")]
+	public AudioSource audioSource;
 	
 	private float nextShotTime;
 	private int laserIndex = 0;
@@ -58,6 +62,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		Health health = target.GetComponent<Health>();
 		health.TakeDamage(damagePerShot);
 		PlayAnimation(target.transform.position);
+		audioSource.PlayOneShot(laserSound0, 1f);
 	}
 	void PlayAnimation(Vector3 target){
 		SetLaser(lasers[laserIndex++], target);
