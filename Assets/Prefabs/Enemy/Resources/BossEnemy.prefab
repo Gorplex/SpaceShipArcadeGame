@@ -504,7 +504,7 @@ MonoBehaviour:
   firstLaunch: 2
   playerTag: Player
   timeBetweenWaves: 5
-  waveSize: 400
+  waveSize: 100
 --- !u!114 &5696178535144981818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,8 +524,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7953963906993119191}
-  viewIdField: 0
-  InstantiationId: 6
+  viewIdField: 5
+  InstantiationId: 5
   isRuntimeInstantiated: 0
 --- !u!114 &8704350080703456817
 MonoBehaviour:

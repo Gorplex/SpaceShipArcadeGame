@@ -24,7 +24,7 @@ public class ButtonInputs : MonoBehaviour{
 	}
 	
 	//keyboard inputs
-	public void Update(){
+	private void Update(){
 		if(Input.GetKeyDown("f")){
             EventManager.TriggerEvent("KillAllEnemies");
         }
@@ -44,14 +44,14 @@ public class ButtonInputs : MonoBehaviour{
 	}
 	
 		
-	//setup listenres
-	public void OnEnable(){
+	//setup listeners
+	private void OnEnable(){
 		EventManager.StartListening("UnlockMouse", UnlockMouse);
 		EventManager.StartListening("LockMouse", LockMouse);
 		EventManager.StartListening("Pause", Pause);
 		EventManager.StartListening("Unpause", Unpause);
 	}
-	public void OnDisable(){
+	private void OnDisable(){
 		EventManager.StopListening("UnlockMouse", UnlockMouse);
 		EventManager.StopListening("LockMouse", LockMouse);
 		EventManager.StopListening("Pause", Pause);
