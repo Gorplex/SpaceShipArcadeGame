@@ -20,7 +20,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	[Tooltip("Refences to Laser Cyliender GameObjects.")]
 	public GameObject[] lasers;
 	[Tooltip("Laser sound effect reference.")]
-	public AudioClip laserSound0;
+	public AudioClip[] laserSounds;
 	[Tooltip("Sound effect source reference.")]
 	public AudioSource audioSource;
 	
@@ -30,6 +30,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	private Vector3 lastPos;
 	private Quaternion lastRot;
 	private Vector3 lastScale;
+	private int soundIndex = 0;
 	
 	void SetupLasers(){
 		foreach(GameObject laser in lasers){
@@ -62,7 +63,12 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		Health health = target.GetComponent<Health>();
 		health.TakeDamage(damagePerShot);
 		PlayAnimation(target.transform.position);
-		audioSource.PlayOneShot(laserSound0, 1f);
+		audioSource.PlayOneShot(laserSounds[soundIndex], 1f);
+		soundIndex++;
+		if (soundIndex >= laserSounds.Length) {
+			soundIndex = 0;
+		}
+		
 	}
 	void PlayAnimation(Vector3 target){
 		SetLaser(lasers[laserIndex++], target);
