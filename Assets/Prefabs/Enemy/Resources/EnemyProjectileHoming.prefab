@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 330eaff164c4c85429f3d776d96066c1, type: 3}
   - {fileID: 8300000, guid: 169bd52c6017d584890652521f97b4c3, type: 3}
   - {fileID: 8300000, guid: c8841b5b7443a0d4483558f7f191dddf, type: 3}
-  audioSource: {fileID: 2485760057805415586}
+  explosionVol: 1
 --- !u!114 &312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 315}
   - {fileID: 308}
-  viewIdField: 0
+  viewIdField: 3
   InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &323
@@ -362,21 +362,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 152}
     m_Modifications:
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Name
-      value: MissileAlienSilver
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 395168222807719030, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -431,6 +416,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Name
+      value: MissileAlienSilver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}

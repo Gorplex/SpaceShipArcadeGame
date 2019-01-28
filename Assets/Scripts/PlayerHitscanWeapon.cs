@@ -3,26 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHitscanWeapon : MonoBehaviour{
+    #region PrivateSerializedFields
+	#pragma warning disable 0649
+    
 	[Tooltip("Weapon auto fire.")]
-    public bool autoFire = false;
+    [SerializeField]
+    private bool autoFire = false;
 	[Tooltip("Weapon fire frequency(Hz).")]
-    public float fireFreq = 4f;
+    [SerializeField]
+    private float fireFreq = 4f;
 	[Tooltip("Damage per shot of player weapon.")]
-	public float damagePerShot = 1f;
+    [SerializeField]
+	private float damagePerShot = 1f;
 	[Tooltip("max range of player weapon.")]
-	public float maxRange = 100f;
+    [SerializeField]
+	private float maxRange = 100f;
 	[Tooltip("Duration of each laser pulse.")]
-	public float duration = .1f;
+    [SerializeField]
+	private float duration = .1f;
 	[Tooltip("Color of Lasor pulses.")]
-	public Color laserColor = Color.green;
+    [SerializeField]
+	private Color laserColor = Color.green;
 	[Tooltip("LayerMask of enemies to change color on.")]
-	[SerializeField] public LayerMask layerMask;
+	[SerializeField]
+    private LayerMask layerMask;
 	[Tooltip("Refences to Laser Cyliender GameObjects.")]
-	public GameObject[] lasers;
+    [SerializeField]
+	private GameObject[] lasers;
 	[Tooltip("Laser sound effect reference.")]
-	public AudioClip[] laserSounds;
-	[Tooltip("Sound effect source reference.")]
-	public AudioSource audioSource;
+    [SerializeField]
+	private AudioClip[] laserSounds;
+    [Tooltip("Explosion sound volume.")]
+    [SerializeField]
+	private float laserVol = .2f;
+    [Tooltip("PlayerCamera GameObject refrence.")]
+    [SerializeField]
+	private GameObject playerCamera;
+    [Tooltip("Player Aiming happens from the player camer not the player ship.")]
+	[SerializeField]
+    private bool PlayerCameraShooting = true;
+	
+    #pragma warning restore 0649
+	#endregion
+    
 	
 	private float nextShotTime;
 	private int laserIndex = 0;
@@ -30,7 +53,9 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	private Vector3 lastPos;
 	private Quaternion lastRot;
 	private Vector3 lastScale;
+    private AudioSource audioSource;
 	private int soundIndex = 0;
+    private Transform raycastStartLocation;
 	
 	void SetupLasers(){
 		foreach(GameObject laser in lasers){
@@ -39,9 +64,18 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		}
 	}
 	
-    void Start(){
+    void Awake(){
 		SetupLasers();
 		nextShotTime = Time.time;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if(PlayerCameraShooting){
+            this.raycastStartLocation = playerCamera.transform;
+        }else{
+            this.raycastStartLocation = this.transform;
+        }
+        if(!this.raycastStartLocation){
+            Debug.Log("<Color=Red><b>Missing</b></Color> PlayerCamera GameObject in PlayerHitscanWeapon on Player GameObject");
+        }
     }
     void Update(){
         if(Input.GetAxis("Fire1")>0 || autoFire){
@@ -51,7 +85,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	void Fireing(){
 		RaycastHit hit;
 		if(Time.time >= nextShotTime){
-			if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxRange, layerMask)){
+			if(Physics.Raycast(this.raycastStartLocation.position, this.raycastStartLocation.TransformDirection(Vector3.forward), out hit, maxRange, layerMask)){
 				if(hit.collider.CompareTag("Enemy")){
 					Shoot(hit.collider.transform.root.gameObject);
 					nextShotTime = Time.time + 1/fireFreq;
@@ -64,7 +98,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		health.TakeDamage(damagePerShot);
 		PlayAnimation(target.transform.position);
 		if(audioSource && laserSounds.Length > 0){
-			audioSource.PlayOneShot(laserSounds[soundIndex], 0.1f);
+			audioSource.PlayOneShot(laserSounds[soundIndex], laserVol);
 			soundIndex++;
 			if (soundIndex >= laserSounds.Length) {
 				soundIndex = 0;
@@ -88,7 +122,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		laser.transform.rotation = Quaternion.LookRotation(target-lastPos);
 		laser.transform.Rotate(90f,0f,0f);
 		laser.SetActive(true);
-		Invoke("ResetLastLaser", .1f);
+		Invoke("ResetLastLaser", duration);
 	}
 	void ResetLastLaser(){
 		curLaser.SetActive(false);

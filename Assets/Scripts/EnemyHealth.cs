@@ -16,24 +16,27 @@ public class EnemyHealth : Health{
 	[SerializeField]
     private bool isBoss = false;
 	[Tooltip("Explosion sound effect reference.")]
-	public AudioClip[] explosionSounds;
-	[Tooltip("Sound effect source reference.")]
-	public AudioSource audioSource;
+    [SerializeField]
+	private AudioClip[] explosionSounds;
+    [Tooltip("Explosion sound volume.")]
+    [SerializeField]
+	private float explosionVol = 1.0f;
 
     #pragma warning restore 0649
 	#endregion
-    private int soundIndex = 0;
+    
+    
+    private AudioSource audioSource;
 	
+    void Awake(){
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
+    
 	protected override void OnDeath(){
 		
 		if(audioSource != null && explosionSounds.Length > 0){
-			Debug.Log("sound should be played");
-			//audioSource.PlayOneShot(explosionSounds[soundIndex], 1f);
-			audioSource.Play();
-			soundIndex++;
-			if (soundIndex >= explosionSounds.Length) {
-				soundIndex = 0;
-			}
+			int soundIndex = Random.Range(0, explosionSounds.Length);
+			audioSource.PlayOneShot(explosionSounds[soundIndex], explosionVol);
 		}
 		if(scoreKeeper){
 			scoreKeeper.Killed(gameObject);
@@ -42,9 +45,15 @@ public class EnemyHealth : Health{
 		}
 		base.OnDeath();
         if(PhotonNetwork.IsMasterClient){
-            PhotonNetwork.Destroy(gameObject);
+            StartCoroutine("DelayDeath", .5f);
+            //PhotonNetwork.Destroy(gameObject);
         }
 	}
+    IEnumerator DelayDeath(float delay){
+        yield return new WaitForSeconds(delay);
+        PhotonNetwork.Destroy(gameObject);
+    }
+    
 	protected void OnEnable(){
         if(!isBoss)
             EventManager.StartListening("KillAllEnemies", OnDeath);
