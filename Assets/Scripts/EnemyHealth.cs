@@ -15,11 +15,26 @@ public class EnemyHealth : Health{
     [Tooltip("Is this enemy a boss.")]
 	[SerializeField]
     private bool isBoss = false;
+	[Tooltip("Explosion sound effect reference.")]
+	public AudioClip[] explosionSounds;
+	[Tooltip("Sound effect source reference.")]
+	public AudioSource audioSource;
 
     #pragma warning restore 0649
 	#endregion
-    
+    private int soundIndex = 0;
+	
 	protected override void OnDeath(){
+		
+		if(audioSource != null && explosionSounds.Length > 0){
+			Debug.Log("sound should be played");
+			//audioSource.PlayOneShot(explosionSounds[soundIndex], 1f);
+			audioSource.Play();
+			soundIndex++;
+			if (soundIndex >= explosionSounds.Length) {
+				soundIndex = 0;
+			}
+		}
 		if(scoreKeeper){
 			scoreKeeper.Killed(gameObject);
 		}else{

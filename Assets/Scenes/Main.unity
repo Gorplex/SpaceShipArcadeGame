@@ -855,7 +855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &656705970
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1656,6 +1656,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 99, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 292, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
       propertyPath: points.Array.size
       value: 4
@@ -1667,10 +1671,6 @@ PrefabInstance:
     - target: {fileID: 292, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
       propertyPath: points.Array.data[0]
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 99, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
-      propertyPath: m_Name
-      value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 148, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
       propertyPath: m_LocalPosition.x

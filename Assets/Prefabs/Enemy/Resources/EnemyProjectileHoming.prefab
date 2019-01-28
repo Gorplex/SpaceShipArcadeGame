@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 312}
   - component: {fileID: 323}
   - component: {fileID: 315}
+  - component: {fileID: 2485760057805415586}
   m_Layer: 9
   m_Name: EnemyProjectileHoming
   m_TagString: Enemy
@@ -106,6 +107,13 @@ MonoBehaviour:
   health: 1
   scoreKeeper: {fileID: 292, guid: e4c5663e3929b8042a5be832ed068cf3, type: 3}
   isBoss: 0
+  explosionSounds:
+  - {fileID: 8300000, guid: 64e13d02321ef6e42a6998b89df1debc, type: 3}
+  - {fileID: 8300000, guid: a320aeee29a4f01499154623bc498dc8, type: 3}
+  - {fileID: 8300000, guid: 330eaff164c4c85429f3d776d96066c1, type: 3}
+  - {fileID: 8300000, guid: 169bd52c6017d584890652521f97b4c3, type: 3}
+  - {fileID: 8300000, guid: c8841b5b7443a0d4483558f7f191dddf, type: 3}
+  audioSource: {fileID: 2485760057805415586}
 --- !u!114 &312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +134,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 315}
   - {fileID: 308}
-  viewIdField: 3
+  viewIdField: 0
   InstantiationId: 3
   isRuntimeInstantiated: 0
 --- !u!114 &323
@@ -160,6 +168,102 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!82 &2485760057805415586
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 64e13d02321ef6e42a6998b89df1debc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &107
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +362,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 152}
     m_Modifications:
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Name
+      value: MissileAlienSilver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 395168222807719030, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,21 +431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Name
-      value: MissileAlienSilver
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720046454620900842, guid: c2bf18755fcc4a747a320a9823414680,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8276426356909646935, guid: c2bf18755fcc4a747a320a9823414680,
         type: 3}

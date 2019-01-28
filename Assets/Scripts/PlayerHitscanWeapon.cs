@@ -63,10 +63,12 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		Health health = target.GetComponent<Health>();
 		health.TakeDamage(damagePerShot);
 		PlayAnimation(target.transform.position);
-		audioSource.PlayOneShot(laserSounds[soundIndex], 1f);
-		soundIndex++;
-		if (soundIndex >= laserSounds.Length) {
-			soundIndex = 0;
+		if(audioSource && laserSounds.Length > 0){
+			audioSource.PlayOneShot(laserSounds[soundIndex], 0.1f);
+			soundIndex++;
+			if (soundIndex >= laserSounds.Length) {
+				soundIndex = 0;
+			}
 		}
 		
 	}
