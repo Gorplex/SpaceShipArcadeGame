@@ -13,6 +13,9 @@ public class EnemyProjectileHoming : Projectile{
     [Tooltip("Player tag string.")]
 	[SerializeField]
 	private string playerTag = "Player";
+    [Tooltip("Disable Player not found error.")]
+	[SerializeField]
+	private bool ignorePlayerMissing = true;
 	
 	#pragma warning restore 0649
 	#endregion
@@ -32,7 +35,8 @@ public class EnemyProjectileHoming : Projectile{
 			transform.LookAt(player.transform);
 		}else{
             if(!(player = GameObject.FindWithTag(playerTag))){
-                Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
+                if(!ignorePlayerMissing)
+                    Debug.Log("'player' not found in EnemyProjectileHoming.cs atached to EnemyProjectileHoming GameObject");
             }else{
                 transform.LookAt(player.transform);
             }

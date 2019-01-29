@@ -49,9 +49,12 @@ public class EnemyShooter : MonoBehaviour{
 		LookAtPlayer();
         InitLaunchTimer();
         recoilAnim = gameObject.GetComponentInChildren<Animator>();
-        enemyProjectileManager = GameObject.Find("/GameManager/EnemyProjectileManager").GetComponent<GameObjectManager>();
+        GameObject obj = GameObject.Find("/GameManager/[EnemyProjectileManager]");
+        if(!obj)
+            Debug.Log("<Color=Red><b>Missing</b></Color> /GameManager/[EnemyProjectileManager] GameObject in scene");
+        enemyProjectileManager = obj.GetComponent<GameObjectManager>();
         if(!enemyProjectileManager)
-            Debug.Log("<Color=Red><b>Missing</b></Color> /GameManager/EnemyProjectileManager GameObject in scene");
+            Debug.Log("<Color=Red><b>Missing</b></Color> GameObjectManager script atached to /GameManager/[EnemyProjectileManager] GameObject in scene");
     }
     
     protected virtual void Update(){

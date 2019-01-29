@@ -56,8 +56,8 @@
      <Compile Include="Assets\Scripts\AudioSourceManager.cs" />
      <Compile Include="Assets\Scripts\BossShooter.cs" />
      <Compile Include="Assets\Scripts\ButtonInputs.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyAxisRotator.cs" />
-     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectileHoming.cs" />
      <Compile Include="Assets\Scripts\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />

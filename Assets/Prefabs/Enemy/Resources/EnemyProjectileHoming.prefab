@@ -90,6 +90,7 @@ MonoBehaviour:
   damage: 5
   turnSpeed: 0
   playerTag: Player
+  ignorePlayerMissing: 1
 --- !u!114 &308
 MonoBehaviour:
   m_ObjectHideFlags: 0
