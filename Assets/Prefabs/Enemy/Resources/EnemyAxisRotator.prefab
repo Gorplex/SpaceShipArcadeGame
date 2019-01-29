@@ -86,6 +86,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomRotationAxis: 0
   rotationSpeed: 20
+  targetTag: Player
+  dps: 20
+  dmgFreq: 10
 --- !u!114 &311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +132,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 321}
   - {fileID: 311}
-  viewIdField: 4
+  viewIdField: 0
   InstantiationId: 4
   isRuntimeInstantiated: 0
 --- !u!114 &317

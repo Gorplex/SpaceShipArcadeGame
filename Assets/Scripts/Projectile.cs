@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour{
 	#region PrivateSerializedFields
 	#pragma warning disable 0649
 	
-	[Tooltip("tag the projectile will damage.")]
+	[Tooltip("Tag the projectile will damage.")]
     [SerializeField] 
 	private string targetTag;
 	[Tooltip("Speed of projectile.")]
@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour{
 	[Tooltip("Max lifetime of projectile in seconds.")]
     [SerializeField] 
 	private float maxTime = 10;
-	[Tooltip("damage projectile will deal to a target.")]
+	[Tooltip("Damage projectile will deal to a target.")]
     [SerializeField] 
 	private float damage = 1;
     
