@@ -13,6 +13,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	[Tooltip("DebugLogging.")]
 	[SerializeField]
 	private bool debug = false;
+    [Tooltip("This client's version number. Users are separated from each other by gameVersion.")]
+	[SerializeField]
+	private string gameVersion = "0.1";
     
 	[Tooltip("The UI Text to inform the user about the connection progress.")]
 	[SerializeField]
@@ -38,9 +41,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     [Tooltip("Delay before the player spawns for the frist time.")]
 	[SerializeField]
 	private float firstSpawnTime = 2;
-	[Tooltip("This client's version number. Users are separated from each other by gameVersion.")]
+    [Tooltip("List of player spawn locations.")]
 	[SerializeField]
-	private string gameVersion = "0.1";
+	private Transform[] playerSpawns;
 	
 	#pragma warning restore 0649
 	#endregion
@@ -207,7 +210,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 		
 		if(playerPrefab){
 			//Instantiate(this.playerPrefab, new Vector3(0f,0f,0f), Quaternion.identity);
-			GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity);
+            GameObject player;
+            if(playerSpawns.Length > 0){
+                int index = Random.Range(0, playerSpawns.Length);
+                player = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawns[index].position, playerSpawns[index].rotation);
+            }else{
+                player = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            }
             player.GetComponent<PlayerHealth>().RespawnMe += StartSpawnProcess;
             CheckedSetActive(crosshairs, true, "crosshairs");
             CheckedSetActive(deadCamera, false, "deadCamera");

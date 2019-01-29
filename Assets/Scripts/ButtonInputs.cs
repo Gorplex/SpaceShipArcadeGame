@@ -8,6 +8,11 @@ public class ButtonInputs : MonoBehaviour{
 	private bool mouseLocked = false;
 	private bool paused = false;
 	
+    	
+    void Awake(){
+        LockMouse();
+    }
+    
 	//Button Triggers
 	public void KillAllEnemies(){
 		EventManager.TriggerEvent("KillAllEnemies");
@@ -42,7 +47,6 @@ public class ButtonInputs : MonoBehaviour{
 			EventManager.TriggerEvent("UnlockMouse");
 		}
 	}
-	
 		
 	//setup listeners
 	private void OnEnable(){

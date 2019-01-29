@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
+  gameVersion: 0.1
   deadCamera: {fileID: 0}
   crosshairs: {fileID: 0}
   feedbackText: {fileID: 0}
@@ -125,7 +126,7 @@ MonoBehaviour:
   maxPlayersPerRoom: 4
   playerPrefab: {fileID: 90, guid: 87faa9752d1a1b94b88aa40b3760d446, type: 3}
   firstSpawnTime: 2
-  gameVersion: 0.1
+  playerSpawns: []
 --- !u!114 &293
 MonoBehaviour:
   m_ObjectHideFlags: 0
