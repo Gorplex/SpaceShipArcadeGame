@@ -24,12 +24,12 @@ public class Projectile : MonoBehaviour{
 	#endregion
 	
 	protected virtual void Start(){
-		Destroy(gameObject, maxTime);
+		Invoke("EndOfLife", maxTime);
     }
     protected virtual void Update(){
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
     }
-	public string getTargetTag(){
+	public string GetTargetTag(){
 		return targetTag;
 	}
 	//TakeDamage
@@ -41,11 +41,16 @@ public class Projectile : MonoBehaviour{
 			}else{
 				Debug.Log("Object hit does not have health component", other.transform.root);
 			}
-			explode();
+			Explode();
 		}
 	}
-	public virtual void explode(){
+    protected virtual void EndOfLife(){
+        gameObject.SetActive(false);
+    }
+	public virtual void Explode(){
 		//play animation
-		Destroy(gameObject);
+		//old way
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
 	}
 }

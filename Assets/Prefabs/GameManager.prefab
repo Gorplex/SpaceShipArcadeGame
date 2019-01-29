@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 292}
   - component: {fileID: 291}
   - component: {fileID: 293}
+  - component: {fileID: 1800219384}
+  - component: {fileID: 1800219385}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -82,6 +84,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 146}
+  - {fileID: 440526109}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,7 +106,7 @@ MonoBehaviour:
   - {fileID: 102, guid: f931e7069f82e5747963281ffeee3060, type: 3}
   - {fileID: 87, guid: 7ff9e3c38163a024baf12a93789938af, type: 3}
   - {fileID: 94, guid: 03b3be958eb636a409afda7a8019a37e, type: 3}
-  points: 030000000100000002000000
+  points: 0a000000010000000200000003000000
 --- !u!114 &291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,8 +128,12 @@ MonoBehaviour:
   updatePeriod: 1
   maxPlayersPerRoom: 4
   playerPrefab: {fileID: 90, guid: 87faa9752d1a1b94b88aa40b3760d446, type: 3}
-  firstSpawnTime: 2
-  playerSpawns: []
+  firstSpawnTime: 0
+  playerSpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +146,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7388d51d237cf5640b802e85e504f91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1800219384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976639f0fc35ff644baa348c483bdd47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numAudioSources: 10
+--- !u!114 &1800219385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3655d1a6ae318448773eb09d4ea9ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &440526108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440526109}
+  - component: {fileID: 440526110}
+  m_Layer: 0
+  m_Name: EnemyProjectileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440526109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440526108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 148}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440526110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440526108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5e7a9a4edf0054ba7376b75403b390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5249746652595121537, guid: a5d5160e62432e14784578b0d45353df, type: 3}
+  numGameObjects: 400
+  objectName: Object

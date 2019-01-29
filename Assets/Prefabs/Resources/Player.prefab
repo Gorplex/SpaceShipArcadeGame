@@ -34143,7 +34143,7 @@ MonoBehaviour:
   autoFire: 0
   fireFreq: 5
   damagePerShot: 0.5
-  maxRange: 100
+  maxRange: 200
   laserDuration: 1
   laserColor: {r: 0, g: 1, b: 0, a: 1}
   layerMask:

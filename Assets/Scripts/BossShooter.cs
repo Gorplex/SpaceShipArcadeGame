@@ -40,7 +40,8 @@ public class BossShooter : EnemyShooter{
     void LaunchSphereWave(){
         for(int i=0;i<waveSize;i++){
             Quaternion launchAngle = Quaternion.LookRotation(Random.onUnitSphere, Vector3.up);
-            Instantiate (GetProjectile(), transform.position + launchAngle * new Vector3(0,0,launchOffset) , launchAngle);
+            //Instantiate (GetProjectile(), transform.position + launchAngle * new Vector3(0,0,launchOffset) , launchAngle);
+            GetEnemyProjectileManager().Spawn(transform.position + launchAngle * new Vector3(0,0,launchOffset) , launchAngle);
         }
     }
     void LaunchCylinder(){
@@ -50,7 +51,8 @@ public class BossShooter : EnemyShooter{
             Vector3 launchVector = randWalk * transform.rotation * new Vector3(0,0,walkDist) 
                 + transform.rotation * new Vector3(0,0,launchOffset);
             Quaternion rot = Quaternion.LookRotation(launchVector, Vector3.up);
-            Instantiate (GetProjectile(), transform.position + launchVector, rot);
+            //Instantiate (GetProjectile(), transform.position + launchVector, rot);
+            GetEnemyProjectileManager().Spawn(transform.position + launchVector, rot);
         }
     }
     

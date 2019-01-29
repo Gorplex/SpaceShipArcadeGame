@@ -182,6 +182,7 @@ MonoBehaviour:
   launchFreq: 0.5
   firstLaunch: 2
   playerTag: Player
+  ignorePlayerMissing: 1
 --- !u!114 &322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +226,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 310}
   - {fileID: 322}
-  viewIdField: 3
-  InstantiationId: 3
+  viewIdField: 6
+  InstantiationId: 6
   isRuntimeInstantiated: 0
 --- !u!114 &319
 MonoBehaviour:

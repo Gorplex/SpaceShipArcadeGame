@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnInfo.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
+     <Compile Include="Assets\Scripts\GameObjectManager.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimator.cs" />

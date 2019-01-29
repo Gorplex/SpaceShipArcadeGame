@@ -14,9 +14,8 @@ public class AudioSourceManager : MonoBehaviour{
     #pragma warning restore 0649
 	#endregion
     
-    private GameObject[] gameObjects;
 	private AudioSource[] audioSources;
-    private int audioSourcesIndex;
+    private int audioSourcesIndex = 0;
     
     private static AudioSourceManager audioSourceManager;
 
@@ -36,22 +35,21 @@ public class AudioSourceManager : MonoBehaviour{
     
     private void CreateAudioSources(){
         audioSources = new AudioSource[numAudioSources];
-        gameObjects = new GameObject[numAudioSources];
         
         GameObject sourceParent = new GameObject("[AudioSources]");
         for(int i=0;i<numAudioSources;i++){
-            gameObjects[i] = new GameObject("AudioSource"+i.ToString());
-            gameObjects[i].transform.parent = sourceParent.transform;
-            //gameObjects[i].SetActive(false);
-            audioSources[i] = gameObjects[i].AddComponent<AudioSource>(); 
+            GameObject obj = new GameObject("AudioSource"+i.ToString());
+            obj.transform.parent = sourceParent.transform;
+            //obj.SetActive(false);
+            audioSources[i] = obj.AddComponent<AudioSource>(); 
         }
     }
     
     public static void PlayOneShot(Transform transform, AudioClip clip, float volumeScale = 1.0f){
-        GameObject curentObject = instance.gameObjects[instance.audioSourcesIndex];
-        curentObject.transform.position = transform.position;
-        curentObject.transform.rotation = transform.rotation;
-        instance.audioSources[instance.audioSourcesIndex].PlayOneShot(clip, volumeScale);
+        AudioSource curentSource = instance.audioSources[instance.audioSourcesIndex];
+        curentSource.gameObject.transform.position = transform.position;
+        curentSource.gameObject.transform.rotation = transform.rotation;
+        curentSource.PlayOneShot(clip, volumeScale);
         instance.audioSourcesIndex++;
         instance.audioSourcesIndex %= instance.numAudioSources;
     }

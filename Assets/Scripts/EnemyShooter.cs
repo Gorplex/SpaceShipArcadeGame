@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour{
 	
+    //TODO ADD LERP FOR LOOKING AT PLAYER
+    
 	#region PrivateSerializedFields
 	#pragma warning disable 0649
 	
@@ -22,6 +24,9 @@ public class EnemyShooter : MonoBehaviour{
 	[Tooltip("Player tag string.")]
 	[SerializeField]
 	private string playerTag = "Player";
+    [Tooltip("Disable Player not found error.")]
+	[SerializeField]
+	private bool ignorePlayerMissing = true;
 	
 	#pragma warning restore 0649
 	#endregion
@@ -30,12 +35,12 @@ public class EnemyShooter : MonoBehaviour{
 	private Animator recoilAnim;
 	private float nextLaunch;
 	private GameObject player;
+    private GameObjectManager enemyProjectileManager;
 	#endregion
 	
-    protected GameObject GetProjectile(){
-        return projectile;
+    protected GameObjectManager GetEnemyProjectileManager(){
+        return enemyProjectileManager;
     }
-    
     protected void InitLaunchTimer(){
         nextLaunch = firstLaunch + Time.time;
     }
@@ -44,6 +49,9 @@ public class EnemyShooter : MonoBehaviour{
 		LookAtPlayer();
         InitLaunchTimer();
         recoilAnim = gameObject.GetComponentInChildren<Animator>();
+        enemyProjectileManager = GameObject.Find("/GameManager/EnemyProjectileManager").GetComponent<GameObjectManager>();
+        if(!enemyProjectileManager)
+            Debug.Log("<Color=Red><b>Missing</b></Color> /GameManager/EnemyProjectileManager GameObject in scene");
     }
     
     protected virtual void Update(){
@@ -54,7 +62,8 @@ public class EnemyShooter : MonoBehaviour{
 			transform.LookAt(player.transform);
 		}else{
             if(!(player = GameObject.FindWithTag(playerTag))){
-                Debug.Log("'player' not found in EnemyShooter.cs atached to many enemy GameObjects");
+                if(!ignorePlayerMissing)
+                    Debug.Log("'player' not found in EnemyShooter.cs atached to many enemy GameObjects");
             }else{
                 transform.LookAt(player.transform);
             }
@@ -65,8 +74,9 @@ public class EnemyShooter : MonoBehaviour{
 		if(Time.time >= nextLaunch){
 			if(recoilAnim)
                 recoilAnim.Play("Recoil");
-            Instantiate (projectile, transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
-			nextLaunch = Time.time + 1/launchFreq;
+            //Instantiate (projectile, transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
+			enemyProjectileManager.Spawn(transform.position + transform.rotation * new Vector3(0,0,launchOffset) , transform.rotation);
+            nextLaunch = Time.time + 1/launchFreq;
 		}
 	}
 }

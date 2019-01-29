@@ -510,6 +510,7 @@ MonoBehaviour:
   launchFreq: 10
   firstLaunch: 2
   playerTag: Player
+  ignorePlayerMissing: 1
   timeBetweenWaves: 5
   waveSize: 100
 --- !u!114 &5696178535144981818
