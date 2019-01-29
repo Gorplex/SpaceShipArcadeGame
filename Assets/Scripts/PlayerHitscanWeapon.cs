@@ -20,16 +20,22 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	private float maxRange = 100f;
 	[Tooltip("Duration of each laser pulse.")]
     [SerializeField]
-	private float duration = .1f;
+	private float laserDuration = .1f;
 	[Tooltip("Color of Lasor pulses.")]
     [SerializeField]
 	private Color laserColor = Color.green;
-	[Tooltip("LayerMask of enemies to change color on.")]
+	[Tooltip("LayerMask of targets (enemies) to atack.")]
 	[SerializeField]
     private LayerMask layerMask;
-	[Tooltip("Refences to Laser Cyliender GameObjects.")]
+    [Tooltip("Number of Lasers to create (Cylinder GameObjects).")]
     [SerializeField]
-	private GameObject[] lasers;
+	private int numLasers = 6;
+    [Tooltip("Refences to laserGunLocations Transfroms.")]
+    [SerializeField]
+	private Transform[] laserGunLocations;
+    [Tooltip("Width of laser beams.")]
+    [SerializeField]
+	private float beamWidth = .1f;
 	[Tooltip("Laser sound effect reference.")]
     [SerializeField]
 	private AudioClip[] laserSounds;
@@ -49,6 +55,7 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 	
 	private float nextShotTime;
 	private int laserIndex = 0;
+    private int gunIndex = 0;
 	private GameObject curLaser;
 	private Vector3 lastPos;
 	private Quaternion lastRot;
@@ -56,13 +63,22 @@ public class PlayerHitscanWeapon : MonoBehaviour{
     private AudioSource audioSource;
 	private int soundIndex = 0;
     private Transform raycastStartLocation;
-	
+    private GameObject[] lasers;
+	private GameObject laserParent;
+    
 	void SetupLasers(){
-		foreach(GameObject laser in lasers){
-			laser.SetActive(false);
-			laser.GetComponent<Renderer>().material.SetColor("_Color",laserColor);
-		}
+        lasers = new GameObject[numLasers];
+        laserParent = new GameObject("[Lasers]");
+        for(int i=0;i<numLasers;i++){
+            lasers[i] = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            lasers[i].transform.parent = laserParent.transform;
+            lasers[i].SetActive(false);
+            lasers[i].GetComponent<Renderer>().material.SetColor("_Color",laserColor);
+        }
 	}
+    void OnDisable(){
+        Destroy(laserParent);
+    }
 	
     void Awake(){
 		SetupLasers();
@@ -97,38 +113,33 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		Health health = target.GetComponent<Health>();
 		health.TakeDamage(damagePerShot);
 		PlayAnimation(target.transform.position);
-		if(audioSource && laserSounds.Length > 0){
+        PlaySound();
+	}
+    void PlaySound(){
+        if(audioSource && laserSounds.Length > 0){
 			audioSource.PlayOneShot(laserSounds[soundIndex], laserVol);
 			soundIndex++;
 			if (soundIndex >= laserSounds.Length) {
 				soundIndex = 0;
 			}
 		}
-		
-	}
+    }
 	void PlayAnimation(Vector3 target){
-		SetLaser(lasers[laserIndex++], target);
-		if(laserIndex >= lasers.Length){
-			laserIndex = 0;
-		}
+		SetLaser(laserGunLocations[gunIndex++], lasers[laserIndex++], target);
+        gunIndex %= laserGunLocations.Length;
+        laserIndex %= lasers.Length;
 	}
-	void SetLaser(GameObject laser, Vector3 target){
-		curLaser = laser;
-		lastPos = laser.transform.position;
-		lastRot = laser.transform.rotation;
-		lastScale = laser.transform.localScale;
-		laser.transform.localScale += new Vector3(0f, ((target-lastPos)/2).magnitude, 0f);
-		laser.transform.position = (lastPos + target)/2;
-		laser.transform.rotation = Quaternion.LookRotation(target-lastPos);
+	void SetLaser(Transform gun, GameObject laser, Vector3 target){
+		laser.transform.localScale = new Vector3(beamWidth, ((target-gun.position)/2).magnitude, beamWidth);
+		laser.transform.position = (gun.position + target)/2;
+		laser.transform.rotation = Quaternion.LookRotation(target-gun.position);
 		laser.transform.Rotate(90f,0f,0f);
 		laser.SetActive(true);
-		Invoke("ResetLastLaser", duration);
-	}
-	void ResetLastLaser(){
-		curLaser.SetActive(false);
-		curLaser.transform.position = lastPos;
-		curLaser.transform.rotation = lastRot;
-		curLaser.transform.localScale = lastScale;
+        StartCoroutine(ResetLastLaser(laserDuration, laser));
+    }
+	private IEnumerator ResetLastLaser(float delayTime, GameObject laser){
+        yield return new WaitForSeconds(delayTime);
+        laser.SetActive(false);
 	}
 	
 	

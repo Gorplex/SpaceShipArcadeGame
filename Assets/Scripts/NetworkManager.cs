@@ -192,11 +192,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 	void StartSpawnProcess(float respawnTime){
 		CheckedSetActive(crosshairs, false, "crosshairs");
 		CheckedSetActive(deadCamera, true, "deadCamera");
-		StartCoroutine("SpawnPlayer", respawnTime);
-        StartCoroutine("WaitAndUpdateTimer", respawnTime);
+		StartCoroutine(SpawnPlayer(respawnTime));
+        StartCoroutine(WaitAndUpdateTimer(respawnTime));
 	}
     
-    IEnumerator WaitAndUpdateTimer(float respawnTime){
+    private IEnumerator WaitAndUpdateTimer(float respawnTime){
         while(respawnTime>0){
             respawnTime -= updatePeriod;
             respawnTimer.text = respawnTime.ToString();
@@ -205,7 +205,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
         respawnTimer.text = "";
     }
     
-	IEnumerator SpawnPlayer(float respawnTime){
+	private IEnumerator SpawnPlayer(float respawnTime){
         yield return new WaitForSeconds(respawnTime);
 		
 		if(playerPrefab){
