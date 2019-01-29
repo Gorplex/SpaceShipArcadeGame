@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour{
 	[Tooltip("Color of Targeting Cylinder when over an Enemy.")]
 	[SerializeField]
     private Color activeC = Color.magenta;
-	
-	
 	[Tooltip("Player move speed in XYZ.")]
     [SerializeField]
 	private float moveSpeed = 5;
@@ -39,15 +37,17 @@ public class PlayerController : MonoBehaviour{
 	[Tooltip("Y sensitivity(mouse).")]
     [SerializeField]
 	private float rotY = 4;
+    [Tooltip("Animator refrence.")]
+    [SerializeField]
+	private Animator anim;
+    /*NOT IMPLEMENTED
     [Tooltip("X look max angle.")]
     [SerializeField]
 	private float maxX = 80;
     [Tooltip("X look min angle.")]
     [SerializeField]
-	private float minX = -80;
-	[Tooltip("Animator refrence.")]
-    [SerializeField]
-	private Animator anim;
+	private float minX = -80;*/
+
 	
     #pragma warning restore 0649
 	#endregion

@@ -19,8 +19,6 @@ public sealed class EventManager : MonoBehaviour{
 					eventManager.Init(); 
 				}
 			}
-			//Debug.Log(eventManager);
-			//Debug.Log(instance);
 			return eventManager;
 		}
 	}

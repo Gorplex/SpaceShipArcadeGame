@@ -24,20 +24,17 @@ public class EnemyHealth : Health{
 
     #pragma warning restore 0649
 	#endregion
-    
-    
-    private AudioSource audioSource;
 	
     void Awake(){
-        audioSource = gameObject.GetComponent<AudioSource>();
     }
     
 	protected override void OnDeath(){
-		
-		if(audioSource != null && explosionSounds.Length > 0){
+		if(explosionSounds.Length > 0){
 			int soundIndex = Random.Range(0, explosionSounds.Length);
-			audioSource.PlayOneShot(explosionSounds[soundIndex], explosionVol);
-		}
+			AudioSourceManager.PlayOneShot(this.transform, explosionSounds[soundIndex], explosionVol);
+		}else{
+            Debug.Log("<Color=Red><b>Missing</b></Color> explosionSounds on EnemyHealth script on many Enemy GameObjects");
+        }
 		if(scoreKeeper){
 			scoreKeeper.Killed(gameObject);
 		}else{
@@ -45,14 +42,9 @@ public class EnemyHealth : Health{
 		}
 		base.OnDeath();
         if(PhotonNetwork.IsMasterClient){
-            StartCoroutine("DelayDeath", .5f);
-            //PhotonNetwork.Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 	}
-    IEnumerator DelayDeath(float delay){
-        yield return new WaitForSeconds(delay);
-        PhotonNetwork.Destroy(gameObject);
-    }
     
 	protected void OnEnable(){
         if(!isBoss)

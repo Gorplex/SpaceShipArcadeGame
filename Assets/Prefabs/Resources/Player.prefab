@@ -34479,8 +34479,6 @@ MonoBehaviour:
   moveSpeed: 20
   rotX: 10
   rotY: 10
-  maxX: 80
-  minX: -80
   anim: {fileID: 0}
 --- !u!114 &294
 MonoBehaviour:
