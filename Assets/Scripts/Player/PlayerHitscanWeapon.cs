@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon;
+using Photon.Pun;
 
 public class PlayerHitscanWeapon : MonoBehaviour{
     #region PrivateSerializedFields
@@ -110,8 +112,15 @@ public class PlayerHitscanWeapon : MonoBehaviour{
 		}
 	}
 	void Shoot(GameObject target){
-		Health health = target.GetComponent<Health>();
-		health.TakeDamage(damagePerShot);
+        PhotonView photonView = target.GetComponent<PhotonView>();
+        if(photonView){
+            photonView.RPC("TakeDamage", RpcTarget.All, damagePerShot);
+        }else{
+            Debug.Log("<Color=Red><b>Missing</b></Color> photonView from target shot by player <" + target.ToString() + ">.");
+        }
+        /*OLD NON-SYNCED WAY
+        Health health = target.GetComponent<Health>();
+        health.TakeDamage(damagePerShot);*/
 		PlayAnimation(target.transform.position);
         PlaySound();
 	}

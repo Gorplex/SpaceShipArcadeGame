@@ -33,6 +33,7 @@ public class Health : MonoBehaviour, IPunObservable{
 		}
     }
     
+    [PunRPC]
 	public void TakeDamage(float damage){
 		health-=damage;
 		OnDamage();
